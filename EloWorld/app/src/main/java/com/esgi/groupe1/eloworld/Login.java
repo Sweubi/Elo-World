@@ -6,16 +6,23 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class Login extends Activity {
+    EditText email,password;
+    Button submit;
     TextView newaccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        
+        email = (EditText) findViewById(R.id.email);
+        password =(EditText) findViewById(R.id.password);
         newaccount = (TextView) findViewById(R.id.nouveau);
 
         newaccount.setOnClickListener(new View.OnClickListener() {

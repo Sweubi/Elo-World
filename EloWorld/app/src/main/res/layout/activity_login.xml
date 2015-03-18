@@ -18,6 +18,7 @@
         <EditText
             android:layout_marginTop="20dp"
             android:paddingTop="10dp"
+            android:padding="10dp"
             android:layout_below="@+id/logo"
             android:id="@+id/pseudo"
             android:textColor="#263238"
@@ -30,6 +31,7 @@
         <EditText
             android:paddingTop="10dp"
             android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:id="@+id/password"
             android:textColor="#263238"
             android:background="@drawable/edittext_top_bg"
