@@ -26,8 +26,7 @@ public class MainActivity extends Activity {
             public void run() {
               Intent activite = new Intent(getApplication(),Login.class);
               startActivity(activite);
-
-                    finish();
+              finish();
             }
         },1300);
 

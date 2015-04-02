@@ -42,7 +42,7 @@ public class Login extends Activity {
     EditText inputemail,inputpassword;
 
     Button btLogin;
-    public static final String URL_LOGIN ="http://192.168.31.1/script/ville.php";
+    public static final String URL_LOGIN ="http://192.168.31.1/EloWorldWeb/webservices/script_login.php";
 
 
     @Override
@@ -63,10 +63,11 @@ public class Login extends Activity {
                  String password = inputpassword.getText().toString();
                 //If not empty
                 if (email.trim().length() > 0 && password.trim().length() > 0){
-                     Methodlogin.loginMethod(email, password, URL_LOGIN);
-                     Toast.makeText(getApplication(),"Welcome",Toast.LENGTH_LONG).show();
+                     //Methodlogin.loginMethod(email, password, URL_LOGIN);
+                     new Logintask().execute();
+                     Toast.makeText(getApplication(),"Bienvenue",Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplication(),"Veuillez remplire tous les champs!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplication(),"Veuillez remplir tous les champs!",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -105,4 +106,16 @@ public class Login extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    class Logintask extends AsyncTask{
+        String email = inputemail.getText().toString();
+        String password = inputpassword.getText().toString();
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            JSONObject jsonObject = new Methodlogin().loginMethod(email,password,URL_LOGIN);
+            return jsonObject;
+        }
+    }
+
 }

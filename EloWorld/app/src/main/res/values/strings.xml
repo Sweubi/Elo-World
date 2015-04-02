@@ -8,13 +8,28 @@
     <string name="connexion">CONNEXION</string>
     <string name="inscription">INSCRIPTION</string>
     <string name="title_activity_login">Connectez-vous</string>
-    <string name="title_activity_register">Créer votre compte</string>
+    <string name="title_activity_register">Créez votre compte</string>
     <string name="input_pseudo">Pseudo</string>
     <string name="input_email">Email</string>
     <string name="imput_pwd">Mot de passe</string>
-    <string name="imput_pwd_c">Confirmer mot de passe</string>
-    <string name="new_compte">Vous ne possedez pas de compte ?</string>
+    <string name="imput_pwd_c">Confirmez mot de passe</string>
+    <string name="new_compte">Vous ne possédez pas de compte ?</string>
     <string name="register">Inscription</string>
     <string name="title_activity_user">UserActivity</string>
+    <string name="title_register">Rejoignez-nous !</string>
+    <string name="forgot_password">Vous avez perdu votre mot de passe ?</string>
+
+    <string-array name="region">
+        <item>Région</item>
+        <item>Brazil</item>
+        <item>EU Nordic and East</item>
+        <item>EU West</item>
+        <item>Latin America North</item>
+        <item>Latin America South</item>
+        <item>North America</item>
+        <item>Oceania</item>
+        <item>Russia</item>
+        <item>Turkey</item>
+    </string-array>
 
 </resources>

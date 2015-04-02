@@ -2,16 +2,39 @@ package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
 
-public class Register extends Activity {
-
+public class Register extends Activity implements AdapterView.OnItemSelectedListener {
+    Spinner region;
+    Button inscription;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        region = (Spinner) findViewById(R.id.region);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.region,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        region.setAdapter(adapter);
+        region.setOnItemSelectedListener(this);
+        final String valofreg = region.getSelectedItem().toString();
+
+
+        inscription=(Button) findViewById(R.id.inscription);
+        inscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("region", valofreg);
+            }
+        });
     }
 
 
@@ -35,5 +58,15 @@ public class Register extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        parent.getItemAtPosition(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

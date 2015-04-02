@@ -24,11 +24,11 @@ import java.util.List;
 /**
  * Created by Christopher on 22/03/2015.
  */
-public class Methodlogin  {
+public class Methodlogin {
 
-    public static String loginMethod(final String email, final String password, final String url){
+    public static JSONObject loginMethod(final String email, final String password, final String url){
         InputStream is = null;
-        String result = "";
+        JSONObject result = null;
 
         //List of parameters
         List<NameValuePair>nameValuePairs = new ArrayList<>();
@@ -39,16 +39,22 @@ public class Methodlogin  {
         try{
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(url);
-            Log.d("url",url);
+
+            Log.d("url",url+" "+email+" "+password);
 
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            Log.d("httpost",String.valueOf(httppost));
+
             HttpResponse response = httpclient.execute(httppost);
+
             HttpEntity entity = response.getEntity();
+
             Log.d("entity", String.valueOf(response));
             is = entity.getContent();
-            Log.d("log_tag", "http connection " + url+ " "+email);
+
+            Log.d("log_tag", "http connection.. ");
         } catch (Exception e) {
-            Log.e("log_tag", "Error in http connection " + e.toString());
+            Log.e("log_tag", "Error in http connection (you're so bad dude :D )" + e.toString());
         }
 
 
@@ -57,4 +63,6 @@ public class Methodlogin  {
         return result;
 
     }
+
+
 }
