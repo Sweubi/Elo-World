@@ -3,7 +3,7 @@
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="region">
-        <item>Région</item>
+        <item>Séléctionner une Région</item>
         <item>Brazil</item>
         <item>EU Nordic and East</item>
         <item>EU West</item>
@@ -25,7 +25,7 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">Elo World</string>
     <string name="connexion">CONNEXION</string>
-    <string name="forgot_password">Vous avez perdu votre mot de passe ?</string>
+    <string name="forgot_password">Mot de passe perdu ?</string>
     <string name="hello_world">Hello world!</string>
     <string name="imput_pwd">Mot de passe</string>
     <string name="imput_pwd_c">Confirmez mot de passe</string>
@@ -33,11 +33,11 @@
     <string name="input_pseudo">Pseudo</string>
     <string name="inscription">INSCRIPTION</string>
     <string name="logo">logo</string>
-    <string name="new_compte">Vous ne possédez pas de compte ?</string>
+    <string name="new_compte">Créer un compte</string>
     <string name="register">Inscription</string>
     <string name="title_activity_login">Connectez-vous</string>
     <string name="title_activity_register">Créez votre compte</string>
-    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_user">Mon éspace </string>
     <string name="title_register">Rejoignez-nous !</string>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/styles.xml -->
     <eat-comment/>

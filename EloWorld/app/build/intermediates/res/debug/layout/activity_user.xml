@@ -1,13 +1,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
     tools:context="com.esgi.groupe1.eloworld.UserActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+   <LinearLayout
+       android:padding="5dp"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:background="#263238"
+       android:layout_alignParentBottom="true">
+       <EditText
+           android:layout_width="270dp"
+           android:layout_height="wrap_content" />
+       <Button
+           android:layout_width="110dp"
+           android:layout_height="wrap_content"
+           android:text="test"
+           android:background="@drawable/button_default_bg"/>
+   </LinearLayout>
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/activity_user.xml -->

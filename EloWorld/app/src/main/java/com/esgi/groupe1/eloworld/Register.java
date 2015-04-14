@@ -12,27 +12,37 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 
-public class Register extends Activity implements AdapterView.OnItemSelectedListener {
+public class Register extends Activity  {
     Spinner region;
     Button inscription;
+    String valueOfSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        //
         region = (Spinner) findViewById(R.id.region);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.region,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         region.setAdapter(adapter);
-        region.setOnItemSelectedListener(this);
-        final String valofreg = region.getSelectedItem().toString();
 
+        region.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                valueOfSpinner = region.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         inscription=(Button) findViewById(R.id.inscription);
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("region", valofreg);
+                Log.d("region",valueOfSpinner);
             }
         });
     }
@@ -60,13 +70,5 @@ public class Register extends Activity implements AdapterView.OnItemSelectedList
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        parent.getItemAtPosition(position);
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

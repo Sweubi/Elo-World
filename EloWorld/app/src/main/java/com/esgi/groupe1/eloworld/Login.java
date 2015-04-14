@@ -42,7 +42,7 @@ public class Login extends Activity {
     EditText inputemail,inputpassword;
 
     Button btLogin;
-    public static final String URL_LOGIN ="http://192.168.31.1/EloWorldWeb/webservices/script_login.php";
+    public static final String URL_LOGIN ="http://192.168.31.1:8080/EloWorldWeb/webservices/script_login.php";
 
 
     @Override
@@ -63,9 +63,12 @@ public class Login extends Activity {
                  String password = inputpassword.getText().toString();
                 //If not empty
                 if (email.trim().length() > 0 && password.trim().length() > 0){
-                     //Methodlogin.loginMethod(email, password, URL_LOGIN);
-                     new Logintask().execute();
-                     Toast.makeText(getApplication(),"Bienvenue",Toast.LENGTH_LONG).show();
+
+                     //new Logintask().execute();
+                    Toast.makeText(getApplication(),"Bienvenue",Toast.LENGTH_LONG).show();
+                    Intent user = new Intent(getApplicationContext(),UserActivity.class);
+                    startActivity(user);
+                    finish();
                 }else{
                     Toast.makeText(getApplication(),"Veuillez remplir tous les champs!",Toast.LENGTH_LONG).show();
                 }
