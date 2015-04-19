@@ -17,8 +17,5 @@
         android:contentDescription="@string/logo"
         android:src="@drawable/ew"/>
 
-
-
-
 </RelativeLayout>
 <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/activity_main.xml -->

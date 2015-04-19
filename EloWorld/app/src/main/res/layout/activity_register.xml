@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -7,37 +7,85 @@
     tools:context="com.esgi.groupe1.eloworld.Register"
     android:background="#263238"
     >
-    <EditText
-        android:id="@+id/email"
-        android:inputType="textEmailAddress"
-        android:hint="@string/input_email"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/rejoindre"
+        android:text="@string/title_register"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:paddingBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+     <EditText
+        android:id="@+id/pseudo"
+        android:layout_below="@+id/rejoindre"
+        android:background="@drawable/edittext_top_bg"
+        android:inputType="text"
+        android:textColor="#fff"
+        android:hint="@string/input_pseudo"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <EditText
+        android:id="@+id/email"
+        android:layout_below="@+id/pseudo"
+        android:background="@drawable/edittext_top_bg"
+        android:inputType="textEmailAddress"
+        android:hint="@string/input_email"
+        android:textColor="#fff"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/email"
         android:hint="@string/imput_pwd"
         android:id="@+id/passwd"
+        android:padding="5dp"
+        android:textColor="#fff"
+        android:background="@drawable/edittext_top_bg"
         android:inputType="textPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
+
     <EditText
         android:id="@+id/c_passwd"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_top_bg"
         android:hint="@string/imput_pwd_c"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textColor="#fff"
         android:layout_below="@+id/passwd"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+
         />
+    <Spinner
+        style="@style/font"
+        android:id="@+id/region"
+        android:layout_below="@+id/c_passwd"
+        android:layout_width="match_parent"
+        android:background="@drawable/edittext_top_bg"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+
+        />
+
     <Button
-        android:id="@+id/register"
+        android:id="@+id/inscription"
         android:background="@drawable/button_default_bg"
         android:text="@string/register"
-        android:layout_below="@+id/c_passwd"
+        android:layout_below="@+id/region"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
-
-
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

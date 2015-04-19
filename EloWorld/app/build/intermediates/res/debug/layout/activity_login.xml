@@ -1,46 +1,51 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin_register"
-    android:paddingRight="@dimen/activity_horizontal_margin_register"
-    android:paddingTop="50dp"
-    android:paddingBottom="@dimen/activity_vertical_margin_register"
+    android:layout_height="match_parent"
     tools:context="com.esgi.groupe1.eloworld.Login"
     android:background="#263238">
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/l1"
+        android:paddingTop="20dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin_register"
+        android:paddingRight="@dimen/activity_horizontal_margin_register"
+        android:paddingBottom="@dimen/activity_vertical_margin_register">
         <ImageView
             android:id="@+id/logo"
             android:layout_width="150dp"
             android:contentDescription="@string/logo"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ew"/>
+            android:src="@drawable/ew"
+            />
 
         <EditText
             android:layout_marginTop="20dp"
             android:paddingTop="10dp"
             android:padding="10dp"
             android:layout_below="@+id/logo"
-            android:id="@+id/pseudo"
-            android:textColor="#263238"
+            android:id="@+id/email"
+            android:textColor="#fff"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/edittext_top_bg"
             android:hint="@string/input_email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            />
 
         <EditText
             android:paddingTop="10dp"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:id="@+id/password"
-            android:textColor="#263238"
+            android:textColor="#fff"
             android:background="@drawable/edittext_top_bg"
             android:inputType="textPassword"
-            android:layout_below="@+id/pseudo"
+            android:layout_below="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/imput_pwd"
-            />
+            android:hint="@string/imput_pwd"/>
         <Button
             android:id="@+id/btnlog"
             android:background="@drawable/button_default_bg"
@@ -50,18 +55,106 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"/>
-    <TextView
-        android:id="@+id/nouveau"
-        android:layout_below="@+id/btnlog"
-        android:textColor="#fff"
-        android:text="@string/new_compte"
-        android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:background="#004d40"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_person"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/imageView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nouveau"
+            android:text="@string/new_compte"
+            android:textColor="#fff"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView" />
+
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:background="#006064"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_refresh"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/imageView2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/losedwd"
+            android:text="@string/forgot_password"
+            android:textColor="#fff"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView2" />
+
+    </RelativeLayout>
+
+       <!--<RelativeLayout
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+
+           android:layout_alignParentBottom="true"
+           android:layout_below="@+id/l1">
+
+          <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/lostpsswd"
+               android:text="@string/forgot_password"
+               android:textColor="#fff"
+               android:layout_alignParentStart="true"
+               android:layout_marginStart="230dp"
+               android:layout_alignParentBottom="true" />
+           <RelativeLayout
+               android:layout_margin="10dp"
+               android:layout_width="160dp"
+               android:layout_height="80dp"
+               android:background="#004d40"
+
+               android:layout_alignParentBottom="true">
+               <ImageView
+                   android:layout_width="70dp"
+                   android:layout_height="70dp"
+                   android:layout_centerVertical="true"
+                   android:src="@drawable/ic_action_person"
+                  android:layout_alignParentLeft="true"
+                   android:id="@+id/imageView" />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/nouveau"
+                   android:text="@string/new_compte"
+                   android:textColor="#fff"
+                   android:layout_centerVertical="true"
+                   android:layout_toEndOf="@+id/imageView" />
+
+            </RelativeLayout>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/nouveau"
+               android:text="@string/new_compte"
+               android:textColor="#fff"
+               android:layout_alignParentBottom="true" />
 
 
-
-
+    </RelativeLayout>-->
 </RelativeLayout>
 <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/activity_login.xml -->

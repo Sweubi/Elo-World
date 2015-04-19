@@ -17,7 +17,4 @@
         android:contentDescription="@string/logo"
         android:src="@drawable/ew"/>
 
-
-
-
 </RelativeLayout>

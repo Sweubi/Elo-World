@@ -20,4 +20,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="font" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#fff</item>
+    </style>
+
 </resources>

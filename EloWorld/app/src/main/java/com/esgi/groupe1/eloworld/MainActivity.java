@@ -13,8 +13,6 @@ import java.util.TimerTask;
 
 public class MainActivity extends Activity {
 
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,8 +24,7 @@ public class MainActivity extends Activity {
             public void run() {
               Intent activite = new Intent(getApplication(),Login.class);
               startActivity(activite);
-
-                    finish();
+              finish();
             }
         },1300);
 
