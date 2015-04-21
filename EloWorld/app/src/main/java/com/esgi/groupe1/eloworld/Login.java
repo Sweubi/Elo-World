@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.esgi.groupe1.eloworld.method.JSONParser;
 import com.esgi.groupe1.eloworld.method.Methodlogin;
 
 import org.apache.http.HttpEntity;
@@ -44,8 +45,8 @@ public class Login extends Activity {
     EditText inputemail,inputpassword;
 
     Button btLogin;
-    public static final String URL_LOGIN ="http://192.168.31.1:8080/EloWorldWeb/webservices/script_login.php";
-
+    public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";
+    private static final String TAG_SUCCESS = "success";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +71,9 @@ public class Login extends Activity {
                 //If not empty
                 if (email.trim().length() > 0 && password.trim().length() > 0){
 
-                     //new Logintask().execute();
+                    new Logintask().execute();
                     Toast.makeText(getApplication(),"Bienvenue",Toast.LENGTH_LONG).show();
-                    Intent user = new Intent(getApplicationContext(),UserActivity.class);
-                    startActivity(user);
-                    finish();
+
                 }else{
                     Toast.makeText(getApplication(),"Veuillez remplir tous les champs!",Toast.LENGTH_LONG).show();
                 }
@@ -122,8 +121,28 @@ public class Login extends Activity {
 
         @Override
         protected Object doInBackground(Object[] params) {
-            JSONObject jsonObject = new Methodlogin().loginMethod(email,password,URL_LOGIN);
-            return jsonObject;
+            List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+            parameters.add(new BasicNameValuePair("email",email));
+            parameters.add(new BasicNameValuePair("Password",password));
+
+            //JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN,parameters);
+             try {
+                 JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN,parameters);
+                 int success = object.getInt(TAG_SUCCESS);
+                 Log.d("success back", String.valueOf(success));
+                 if (success == 1){
+                     Intent intent = new Intent(getApplicationContext(),UserActivity.class);
+                     startActivity(intent);
+                     finish();
+
+                 }else{
+                     Log.d("erreur","impossible");
+                 }
+             } catch (JSONException e) {
+                 e.printStackTrace();
+             }
+
+            return null;
         }
     }
 

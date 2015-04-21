@@ -1,6 +1,7 @@
 package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -78,6 +79,7 @@ public class Register extends Activity  {
                     if(password.equals(confirmPwd)){
 
                         new Newuser().execute();
+
                     }
                     else{
                         Toast.makeText(getApplication(),"Veuillez saisir des mots de passes indentiques ",Toast.LENGTH_SHORT).show();
@@ -95,33 +97,44 @@ public class Register extends Activity  {
 
     class Newuser extends AsyncTask {
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            ProgressDialog dialog = new ProgressDialog(Register.this);
+            dialog.setMessage("Veuillez Patienter nous créons votre compte..");
+            dialog.setIndeterminate(false);
+            dialog.setCancelable(true);
+            dialog.show();
+        }
+
         @Override
         protected Object doInBackground(Object[] params) {
 
+
             String email = inputemail.getText().toString();
             String pseudo = inputPseudo.getText().toString();
-            //String password = inputPwd.getText().toString();
             String Password = inputCPwd.getText().toString();
             String Server = valueOfSpinner;
+
             List<NameValuePair> parameters = new ArrayList<NameValuePair>();
             parameters.add(new BasicNameValuePair("pseudo",pseudo));
             parameters.add(new BasicNameValuePair("email",email));
             parameters.add(new BasicNameValuePair("Password",Password));
             parameters.add(new BasicNameValuePair("Server",Server));
 
-            // check log cat fro response
-           // Log.d("Create Response", json.toString());
+
                     try {
                         JSONObject json = JSONParser.makeHttpRequest(Url_Register,parameters);
                         Log.d("Json", String.valueOf(json));
-                        boolean success = json.getBoolean(TAG_SUCCESS);
+                        int success = json.getInt(TAG_SUCCESS);
                         Log.d("success back", String.valueOf(success));
-                        if (success == true){
+                        if (success == 1){
                             Intent intent = new Intent(getApplicationContext(),Login.class);
                             startActivity(intent);
 
                         }else{
-                            Toast.makeText(getApplication(),"null ",Toast.LENGTH_SHORT).show();
+                           Log.d(":D","HAHAHAHAAHAHAHAHAHA");
                         }
 
                     } catch (JSONException e) {

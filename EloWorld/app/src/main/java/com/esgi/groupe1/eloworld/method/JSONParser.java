@@ -27,7 +27,7 @@ public class JSONParser {
     static String json = "";
 
     //Constructeur
-    JSONParser(){
+    public JSONParser(){
 
     }
     public static JSONObject makeHttpRequest(String url ,List<NameValuePair>parameters){
