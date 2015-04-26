@@ -24,6 +24,7 @@
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="app_name">Elo World</string>
+    <string name="cancel">Annuler</string>
     <string name="connexion">CONNEXION</string>
     <string name="forgot_password">Mot de passe perdu ?</string>
     <string name="hello_world">Hello world!</string>
@@ -35,9 +36,11 @@
     <string name="logo">logo</string>
     <string name="new_compte">Créer un compte</string>
     <string name="register">Inscription</string>
+    <string name="send">Envoyer</string>
+    <string name="title_activity_dialog_email">Saisissez votre Email</string>
     <string name="title_activity_login">Connectez-vous</string>
     <string name="title_activity_register">Créez votre compte</string>
-    <string name="title_activity_user">Mon éspace </string>
+    <string name="title_activity_user">Mon espace </string>
     <string name="title_register">Rejoignez-nous !</string>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/styles.xml -->
     <eat-comment/>

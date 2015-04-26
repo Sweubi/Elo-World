@@ -55,6 +55,15 @@
             android:name=".UserActivity"
             android:label="@string/title_activity_user" >
         </activity>
+        <activity
+            android:name=".DialogEmail"
+            android:label="@string/title_activity_dialog_email"
+            android:parentActivityName=".Login"
+            android:theme="@android:style/Theme.Holo.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.Login" />
+        </activity>
     </application>
 
 </manifest>

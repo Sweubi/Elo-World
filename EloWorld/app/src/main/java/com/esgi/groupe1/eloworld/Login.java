@@ -1,52 +1,42 @@
 package com.esgi.groupe1.eloworld;
 
-import android.app.Activity;
+
+import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.esgi.groupe1.eloworld.method.JSONParser;
-import com.esgi.groupe1.eloworld.method.Methodlogin;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Login extends Activity {
+public class Login extends FragmentActivity {
+    FragmentTransaction fragmentTransaction =getFragmentManager().beginTransaction();
     EditText email,password;
-    Button submit;
     TextView newaccount;
     EditText inputemail,inputpassword;
+    ProgressDialog dialog;
+    RelativeLayout reset;
 
     Button btLogin;
     public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";
     private static final String TAG_SUCCESS = "success";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +51,7 @@ public class Login extends Activity {
         inputemail = (EditText) findViewById(R.id.email);
         inputpassword =(EditText)findViewById(R.id.password);
         btLogin = (Button)findViewById(R.id.btnlog);
-
+        reset = (RelativeLayout)findViewById(R.id.reset);
 
         btLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -72,7 +62,6 @@ public class Login extends Activity {
                 if (email.trim().length() > 0 && password.trim().length() > 0){
 
                     new Logintask().execute();
-                    Toast.makeText(getApplication(),"Bienvenue",Toast.LENGTH_LONG).show();
 
                 }else{
                     Toast.makeText(getApplication(),"Veuillez remplir tous les champs!",Toast.LENGTH_LONG).show();
@@ -86,6 +75,15 @@ public class Login extends Activity {
             public void onClick(View v) {
                 Intent account = new Intent(getApplicationContext(),Register.class);
                 startActivity(account);
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent intent = new Intent(getApplication(),DialogEmail.class);
+                startActivity(intent);*/
+                DialogEmail dialogEmail =new DialogEmail();
+                dialogEmail.show(fragmentTransaction,"Dialog");
             }
         });
     }
@@ -115,9 +113,20 @@ public class Login extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     class Logintask extends AsyncTask{
         String email = inputemail.getText().toString();
         String password = inputpassword.getText().toString();
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(Login.this);
+            dialog.setMessage("Connexion..");
+            dialog.setIndeterminate(false);
+            dialog.setCancelable(true);
+            dialog.show();
+        }
 
         @Override
         protected Object doInBackground(Object[] params) {
@@ -143,6 +152,12 @@ public class Login extends Activity {
              }
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            dialog.dismiss();
         }
     }
 

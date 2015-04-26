@@ -31,6 +31,7 @@ public class Register extends Activity  {
     Spinner region;
     Button inscription;
     String valueOfSpinner;
+    ProgressDialog dialog;
     public static final String Url_Register ="http://192.168.31.1/eloworldweb/Code/WebService/inscription/inscription.php";
     private static final String TAG_SUCCESS = "success";
 
@@ -38,7 +39,7 @@ public class Register extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        //
+
         inputPseudo = (EditText) findViewById(R.id.pseudo);
         inputemail = (EditText) findViewById(R.id.email);
         inputPwd =(EditText)findViewById(R.id.passwd);
@@ -56,7 +57,6 @@ public class Register extends Activity  {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 valueOfSpinner = region.getSelectedItem().toString();
-
             }
 
             @Override
@@ -98,11 +98,11 @@ public class Register extends Activity  {
     class Newuser extends AsyncTask {
 
 
-        @Override
+       @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            ProgressDialog dialog = new ProgressDialog(Register.this);
-            dialog.setMessage("Veuillez Patienter nous créons votre compte..");
+            dialog = new ProgressDialog(Register.this);
+            dialog.setMessage("Veuillez patienter nous créons votre compte..");
             dialog.setIndeterminate(false);
             dialog.setCancelable(true);
             dialog.show();
@@ -133,8 +133,11 @@ public class Register extends Activity  {
                             Intent intent = new Intent(getApplicationContext(),Login.class);
                             startActivity(intent);
 
+                            finish();
+
                         }else{
                            Log.d(":D","HAHAHAHAAHAHAHAHAHA");
+
                         }
 
                     } catch (JSONException e) {
@@ -142,7 +145,19 @@ public class Register extends Activity  {
                     }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            if(dialog.isShowing()){
+                dialog.dismiss();
+            }
+
+            Toast.makeText(getApplication(),"Vous pouvez désormais vous connecter",Toast.LENGTH_LONG).show();
+
+        }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
