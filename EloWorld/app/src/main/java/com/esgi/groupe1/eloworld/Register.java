@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,9 +15,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.esgi.groupe1.eloworld.RiotGameAPI.APIMethod;
+import com.esgi.groupe1.eloworld.method.AppMethod;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,8 +34,8 @@ public class Register extends Activity  {
     Button inscription;
     String valueOfSpinner;
     ProgressDialog dialog;
-    public static final String Url_Register ="http://192.168.31.1/eloworldweb/Code/WebService/inscription/inscription.php";
     private static final String TAG_SUCCESS = "success";
+    public static final String Url_Register ="http://192.168.31.1/eloworldweb/Code/WebService/inscription/inscription.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +77,9 @@ public class Register extends Activity  {
                 String confirmPwd = inputCPwd.getText().toString();
 
                 if (email.trim().length()>0 && pseudo.trim().length()>0 && password.trim().length()>0 && confirmPwd.trim().length()>0){
-
-                    if(password.equals(confirmPwd)){
-
+                    //call method checkequalityPassword() from AppMethod.class
+                    boolean checkequalityPassword = new AppMethod().checkequalityPassword(password, confirmPwd);
+                    if(checkequalityPassword){
                         new Newuser().execute();
 
                     }
@@ -88,9 +90,6 @@ public class Register extends Activity  {
                 else{
                     Toast.makeText(getApplication(),"Veuillez remplir tous les champs!",Toast.LENGTH_LONG).show();
                 }
-
-
-
             }
         });
     }
@@ -104,7 +103,7 @@ public class Register extends Activity  {
             dialog = new ProgressDialog(Register.this);
             dialog.setMessage("Veuillez patienter nous créons votre compte..");
             dialog.setIndeterminate(false);
-            dialog.setCancelable(true);
+            dialog.setCancelable(false);
             dialog.show();
         }
 
@@ -115,46 +114,84 @@ public class Register extends Activity  {
             String email = inputemail.getText().toString();
             String pseudo = inputPseudo.getText().toString();
             String Password = inputCPwd.getText().toString();
-            String Server = valueOfSpinner;
+            String Server = new AppMethod().ServerRiot(valueOfSpinner);
+            JSONObject apiMethod =new APIMethod().getInfoSummonerByPseudo(pseudo, Server);
 
-            List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+            int level = 0;
+            int SummonerIds=0;
+            int profileIconId=0;
+            String Rank = null;
+            try {
+                SummonerIds= apiMethod.getJSONObject(pseudo.toLowerCase()).getInt("id");
+                level =apiMethod.getJSONObject(pseudo.toLowerCase()).getInt("summonerLevel");
+                profileIconId =apiMethod.getJSONObject(pseudo.toLowerCase()).getInt("profileIconId");
+                Rank = new APIMethod().getRankUser(SummonerIds, Server);
+                /*JSONObject Summoner =new APIMethod().getInfoSummonerById(SummonerIds, Server);
+                JSONArray jsonArray = Summoner.getJSONArray(String.valueOf(SummonerIds));
+
+                JSONObject data = jsonArray.getJSONObject(0);
+
+                JSONArray dataDivision = data.getJSONArray("entries");
+                JSONObject data2 = dataDivision.getJSONObject(0);
+                test2 =data2.getString("division");
+                Division = data.getString("tier");
+                Log.d("Icon", String.valueOf(profileIconId));*/
+
+
+            } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+            Log.d("Rank",Rank);
+            List<NameValuePair> parameters = new ArrayList<>();
             parameters.add(new BasicNameValuePair("pseudo",pseudo));
             parameters.add(new BasicNameValuePair("email",email));
             parameters.add(new BasicNameValuePair("Password",Password));
             parameters.add(new BasicNameValuePair("Server",Server));
+            parameters.add(new BasicNameValuePair("Rank",Rank));
+            parameters.add(new BasicNameValuePair("Level",Integer.toString(level)));
+            parameters.add(new BasicNameValuePair("SummonerIds",Integer.toString(SummonerIds)));
+            parameters.add(new BasicNameValuePair("profileIconId",Integer.toString(profileIconId)));
+
+
+            int success = 0;
 
 
                     try {
+
                         JSONObject json = JSONParser.makeHttpRequest(Url_Register,parameters);
                         Log.d("Json", String.valueOf(json));
-                        int success = json.getInt(TAG_SUCCESS);
-                        Log.d("success back", String.valueOf(success));
+                        success = json.getInt(TAG_SUCCESS);
+
                         if (success == 1){
+                            success =1;
                             Intent intent = new Intent(getApplicationContext(),Login.class);
                             startActivity(intent);
-
                             finish();
-
                         }else{
-                           Log.d(":D","HAHAHAHAAHAHAHAHAHA");
-
+                            success =0;
                         }
 
-                    } catch (JSONException e) {
+        }
+
+        catch (JSONException e) {
                         e.printStackTrace();
                     }
-            return null;
+                    finally {
+                        return success;
+                    }
+
         }
 
         @Override
         protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-            if(dialog.isShowing()){
-                dialog.dismiss();
+            dialog.dismiss();
+            if (o==1) {
+                Toast.makeText(getApplication(), "Vous pouvez désormais vous connecter", Toast.LENGTH_LONG).show();
             }
-
-            Toast.makeText(getApplication(),"Vous pouvez désormais vous connecter",Toast.LENGTH_LONG).show();
-
+            else {
+                Toast.makeText(getApplication(), "Bêtise", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
@@ -165,20 +202,6 @@ public class Register extends Activity  {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
 }
+
+

@@ -1,17 +1,57 @@
 package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.esgi.groupe1.eloworld.method.SessionManager;
 
 
 public class UserActivity extends Activity {
-
+    private SessionManager session;
+    //private ProgressBar progressBar;
+    //private int mProgressStatus = 0;
+    private Handler mHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+        //progressBar =(ProgressBar)findViewById(R.id.progressbar);
+
+        if (!session.isLoggedIn())
+            logout();
+
+      /*new Thread(new Runnable() {
+          @Override
+          public void run() {
+              while (mProgressStatus<100){
+                 mHandler.post(new Runnable() {
+                     @Override
+                     public void run() {
+                         progressBar.setProgress(mProgressStatus);
+
+                     }
+                 });
+                  mProgressStatus ++;
+                  android.os.SystemClock.sleep(1000);
+              }
+          }
+      }).start();*/
+
+        Intent intent = getIntent();
+        String pseudo = intent.getStringExtra("Pseudo");
+        setTitle(pseudo);
+
     }
 
 
@@ -32,8 +72,20 @@ public class UserActivity extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }if(id == R.id.action_logout){
+           logout();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private void logout() {
+        session.setLogin(false);
+
+
+
+        // Launching the login activity
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        finish();
     }
 }

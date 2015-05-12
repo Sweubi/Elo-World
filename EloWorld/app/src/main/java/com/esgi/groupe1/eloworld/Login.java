@@ -3,7 +3,10 @@ package com.esgi.groupe1.eloworld;
 
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -17,6 +20,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.esgi.groupe1.eloworld.method.JSONParser;
+import com.esgi.groupe1.eloworld.method.SessionManager;
+import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -26,16 +32,22 @@ import java.util.List;
 
 
 public class Login extends FragmentActivity {
-    FragmentTransaction fragmentTransaction =getFragmentManager().beginTransaction();
-    EditText email,password;
+
+    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
     TextView newaccount;
     EditText inputemail,inputpassword;
     ProgressDialog dialog;
     RelativeLayout reset;
-
+    String email;
+    String password ;
     Button btLogin;
+    private SQLiteHandler db;
     public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";
     private static final String TAG_SUCCESS = "success";
+    private SessionManager session;
+
+    // Session manager
+
 
 
     @Override
@@ -43,10 +55,15 @@ public class Login extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        
-        email = (EditText) findViewById(R.id.email);
-        password =(EditText) findViewById(R.id.password);
+        session = new SessionManager(getApplicationContext());
 
+        // Check if user is already logged in or not
+        if (session.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(this, UserActivity.class);
+            startActivity(intent);
+            finish();
+        }
         newaccount = (TextView) findViewById(R.id.nouveau);
         inputemail = (EditText) findViewById(R.id.email);
         inputpassword =(EditText)findViewById(R.id.password);
@@ -56,17 +73,20 @@ public class Login extends FragmentActivity {
         btLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                 String email = inputemail.getText().toString();
-                 String password = inputpassword.getText().toString();
-                //If not empty
-                if (email.trim().length() > 0 && password.trim().length() > 0){
+                String email = inputemail.getText().toString();
+                String password = inputpassword.getText().toString();
+                if (session.isOnline()) {
+                    //If not empty
+                    if (email.trim().length() > 0 && password.trim().length() > 0) {
 
-                    new Logintask().execute();
+                        new Logintask().execute();
 
-                }else{
-                    Toast.makeText(getApplication(),"Veuillez remplir tous les champs!",Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplication(), "Veuillez remplir tous les champs!", Toast.LENGTH_LONG).show();
+                    }
+                }else {
+                    Toast.makeText(getApplication(), "pas de connexion", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -80,10 +100,12 @@ public class Login extends FragmentActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(getApplication(),DialogEmail.class);
-                startActivity(intent);*/
-                DialogEmail dialogEmail =new DialogEmail();
+
+                DialogEmail dialogEmail = new DialogEmail();
+                if (dialogEmail.isVisible())dialogEmail.dismiss();
+
                 dialogEmail.show(fragmentTransaction,"Dialog");
+
             }
         });
     }
@@ -116,16 +138,18 @@ public class Login extends FragmentActivity {
 
 
     class Logintask extends AsyncTask{
-        String email = inputemail.getText().toString();
-        String password = inputpassword.getText().toString();
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            email = inputemail.getText().toString();
+            password = inputpassword.getText().toString();
             dialog = new ProgressDialog(Login.this);
             dialog.setMessage("Connexion..");
             dialog.setIndeterminate(false);
-            dialog.setCancelable(true);
+            dialog.setCancelable(false);
             dialog.show();
+
         }
 
         @Override
@@ -133,32 +157,48 @@ public class Login extends FragmentActivity {
             List<NameValuePair> parameters = new ArrayList<NameValuePair>();
             parameters.add(new BasicNameValuePair("email",email));
             parameters.add(new BasicNameValuePair("Password",password));
-
+            Object objectR =0;
             //JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN,parameters);
              try {
-                 JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN,parameters);
+                 JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN, parameters);
                  int success = object.getInt(TAG_SUCCESS);
                  Log.d("success back", String.valueOf(success));
                  if (success == 1){
+                     objectR =1;
+                     session.setLogin(true);
+                     
                      Intent intent = new Intent(getApplicationContext(),UserActivity.class);
+                     Log.d("value",object.getString("pseudo"));
+                     intent.putExtra("Pseudo",object.getString("pseudo"));
                      startActivity(intent);
                      finish();
 
                  }else{
+                     objectR =0;
                      Log.d("erreur","impossible");
                  }
              } catch (JSONException e) {
                  e.printStackTrace();
              }
 
-            return null;
+            return objectR;
         }
 
         @Override
         protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-            dialog.dismiss();
+            // Dismiss the progress dialog
+                dialog.dismiss();
+            if (o == 1){
+                Toast.makeText(getApplication(), "Welcome!", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(getApplication(), "Informations invalident!", Toast.LENGTH_LONG).show();
+            }
+
+
         }
     }
+
+
 
 }

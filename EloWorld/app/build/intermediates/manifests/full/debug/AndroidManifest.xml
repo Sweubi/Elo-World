@@ -2,15 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.esgi.groupe1.eloworld"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="Bêta" >
 
     <uses-sdk
-        android:minSdkVersion="18"
+        android:minSdkVersion="17"
         android:targetSdkVersion="21" />
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -55,14 +56,28 @@
             android:name="com.esgi.groupe1.eloworld.UserActivity"
             android:label="@string/title_activity_user" >
         </activity>
+        <!--
         <activity
-            android:name="com.esgi.groupe1.eloworld.DialogEmail"
+            android:name=".DialogEmail"
             android:label="@string/title_activity_dialog_email"
-            android:parentActivityName="com.esgi.groupe1.eloworld.Login"
+            android:parentActivityName=".Login"
             android:theme="@android:style/Theme.Holo.Dialog" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.Login" />
+        </activity>
+        -->
+        <activity
+            android:name="com.esgi.groupe1.eloworld.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password" >
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.esgi.groupe1.eloworld.UserActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.UserActivity" />
         </activity>
     </application>
 
