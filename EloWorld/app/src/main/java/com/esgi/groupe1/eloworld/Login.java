@@ -3,10 +3,7 @@ package com.esgi.groupe1.eloworld;
 
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -19,6 +16,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.esgi.groupe1.eloworld.RiotGameAPI.APIMethod;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 import com.esgi.groupe1.eloworld.method.SessionManager;
 import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
@@ -34,6 +33,7 @@ import java.util.List;
 public class Login extends FragmentActivity {
 
     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+    APIMethod apiMethod = new APIMethod();
     TextView newaccount;
     EditText inputemail,inputpassword;
     ProgressDialog dialog;
@@ -41,13 +41,11 @@ public class Login extends FragmentActivity {
     String email;
     String password ;
     Button btLogin;
-    private SQLiteHandler db;
+    SQLiteHandler db;
+
     public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";
     private static final String TAG_SUCCESS = "success";
     private SessionManager session;
-
-    // Session manager
-
 
 
     @Override
@@ -79,8 +77,9 @@ public class Login extends FragmentActivity {
                     //If not empty
                     if (email.trim().length() > 0 && password.trim().length() > 0) {
 
-                        new Logintask().execute();
+                        //db.addUser(email);
 
+                        new Logintask().execute();
                     } else {
                         Toast.makeText(getApplication(), "Veuillez remplir tous les champs!", Toast.LENGTH_LONG).show();
                     }
@@ -102,16 +101,13 @@ public class Login extends FragmentActivity {
             public void onClick(View v) {
 
                 DialogEmail dialogEmail = new DialogEmail();
-                if (dialogEmail.isVisible())dialogEmail.dismiss();
+                if (dialogEmail.isVisible()) dialogEmail.dismiss();
 
-                dialogEmail.show(fragmentTransaction,"Dialog");
+                dialogEmail.show(fragmentTransaction, "Dialog");
 
             }
         });
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -137,8 +133,7 @@ public class Login extends FragmentActivity {
 
 
 
-    class Logintask extends AsyncTask{
-
+    class Logintask extends AsyncTask<Object, Void, Integer> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -153,49 +148,59 @@ public class Login extends FragmentActivity {
         }
 
         @Override
-        protected Object doInBackground(Object[] params) {
+        protected Integer doInBackground(Object... params) {
             List<NameValuePair> parameters = new ArrayList<NameValuePair>();
             parameters.add(new BasicNameValuePair("email",email));
-            parameters.add(new BasicNameValuePair("Password",password));
-            Object objectR =0;
-            //JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN,parameters);
-             try {
-                 JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN, parameters);
-                 int success = object.getInt(TAG_SUCCESS);
-                 Log.d("success back", String.valueOf(success));
-                 if (success == 1){
-                     objectR =1;
-                     session.setLogin(true);
-                     
-                     Intent intent = new Intent(getApplicationContext(),UserActivity.class);
-                     Log.d("value",object.getString("pseudo"));
-                     intent.putExtra("Pseudo",object.getString("pseudo"));
-                     startActivity(intent);
-                     finish();
+            parameters.add(new BasicNameValuePair("Password", password));
+            JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN, parameters);
+            int retour = 0;
 
-                 }else{
-                     objectR =0;
-                     Log.d("erreur","impossible");
-                 }
-             } catch (JSONException e) {
-                 e.printStackTrace();
-             }
+            try {
 
-            return objectR;
+                int success = object.getInt(TAG_SUCCESS);
+                int idUser =object.getInt("idUser");
+                String pseudo = object.getString("pseudo");
+                String server = object.getString("Server");
+                int idSummoner =object.getInt("summonerIds");
+                String rank;
+                int profileIconId;
+                JSONObject Info = apiMethod.getInfoSummonerByPseudo(pseudo, server);
+                int level = Info.getJSONObject(pseudo.toLowerCase()).getInt("summonerLevel");
+                profileIconId= Info.getJSONObject(pseudo.toLowerCase()).getInt("profileIconId");
+                rank = new APIMethod().getRankUser(idSummoner, server);
+                Log.d("success back", String.valueOf(level));
+                if (success == 1){
+                    retour =1;
+                    db = new SQLiteHandler(getApplicationContext());
+                    db.addUser(idUser,pseudo,email,level,server,rank,idSummoner,profileIconId);
+                    session.setLogin(true);
+                    Intent intent = new Intent(getApplicationContext(),UserActivity.class);
+                    intent.putExtra("Pseudo",object.getString("pseudo"));
+                    startActivity(intent);
+                    finish();
+                }else{
+                    retour=0;
+                    Log.d("erreur","impossible");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            finally {
+                return retour;
+            }
+
         }
 
         @Override
-        protected void onPostExecute(Object o) {
+        protected void onPostExecute(Integer object) {
             // Dismiss the progress dialog
-                dialog.dismiss();
-            if (o == 1){
-                Toast.makeText(getApplication(), "Welcome!", Toast.LENGTH_LONG).show();
+            dialog.dismiss();
+            if (object==1){
+                Toast.makeText(getApplication(), "Welcome", Toast.LENGTH_LONG).show();
             }
             else {
-                Toast.makeText(getApplication(), "Informations invalident!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplication(), "NON", Toast.LENGTH_LONG).show();
             }
-
-
         }
     }
 

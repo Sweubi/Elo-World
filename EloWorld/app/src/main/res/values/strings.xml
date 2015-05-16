@@ -43,5 +43,8 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_forum">Forum</string>
+    <string name="title_activity_messenger">Messagerie</string>
+    <string name="title_activity_profil">ProfilActivity</string>
 
 </resources>

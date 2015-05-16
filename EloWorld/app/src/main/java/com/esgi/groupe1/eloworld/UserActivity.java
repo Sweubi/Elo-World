@@ -7,50 +7,50 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.esgi.groupe1.eloworld.method.SessionManager;
+import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
+
+import java.util.HashMap;
 
 
 public class UserActivity extends Activity {
     private SessionManager session;
-    //private ProgressBar progressBar;
-    //private int mProgressStatus = 0;
-    private Handler mHandler = new Handler();
+    SQLiteHandler db ;
+    ImageView profil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+
         // session manager
         session = new SessionManager(getApplicationContext());
         //progressBar =(ProgressBar)findViewById(R.id.progressbar);
-
+        db = new SQLiteHandler(getApplicationContext());
+        HashMap<String,Object> user =db.getUser();
+        String pseudo = (String) user.get("email");
         if (!session.isLoggedIn())
             logout();
 
-      /*new Thread(new Runnable() {
-          @Override
-          public void run() {
-              while (mProgressStatus<100){
-                 mHandler.post(new Runnable() {
-                     @Override
-                     public void run() {
-                         progressBar.setProgress(mProgressStatus);
-
-                     }
-                 });
-                  mProgressStatus ++;
-                  android.os.SystemClock.sleep(1000);
-              }
-          }
-      }).start();*/
-
-        Intent intent = getIntent();
-        String pseudo = intent.getStringExtra("Pseudo");
+        /*Intent intent = getIntent();
+        String pseudo = intent.getStringExtra("Pseudo");*/
         setTitle(pseudo);
+        profil = (ImageView) findViewById(R.id.profil);
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),ProfilActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -80,9 +80,7 @@ public class UserActivity extends Activity {
     }
     private void logout() {
         session.setLogin(false);
-
-
-
+        db.deleteUsers();
         // Launching the login activity
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);

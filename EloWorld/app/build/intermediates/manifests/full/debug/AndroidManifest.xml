@@ -79,6 +79,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.UserActivity" />
         </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.ForumActivity"
+            android:label="@string/title_activity_forum"
+            android:parentActivityName="com.esgi.groupe1.eloworld.UserActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.ChangePasswordActivity$ProfilActivity"
+            android:label="@string/title_activity_profil"
+            android:parentActivityName="com.esgi.groupe1.eloworld.UserActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.ProfilActivity"
+            android:label="@string/title_activity_profil"
+            android:parentActivityName="com.esgi.groupe1.eloworld.UserActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+        </activity>
     </application>
 
 </manifest>

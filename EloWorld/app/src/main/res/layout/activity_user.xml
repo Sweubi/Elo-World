@@ -35,13 +35,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_action_new"/>
     </LinearLayout>
-    <ProgressBar
-        android:layout_below="@+id/l1"
-        android:id="@+id/progressbar"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-         />
    
 </RelativeLayout>

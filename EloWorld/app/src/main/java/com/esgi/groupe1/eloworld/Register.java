@@ -20,7 +20,6 @@ import com.esgi.groupe1.eloworld.method.AppMethod;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,7 +76,7 @@ public class Register extends Activity  {
                 String confirmPwd = inputCPwd.getText().toString();
 
                 if (email.trim().length()>0 && pseudo.trim().length()>0 && password.trim().length()>0 && confirmPwd.trim().length()>0){
-                    //call method checkequalityPassword() from AppMethod.class
+
                     boolean checkequalityPassword = new AppMethod().checkequalityPassword(password, confirmPwd);
                     if(checkequalityPassword){
                         new Newuser().execute();
@@ -109,54 +108,28 @@ public class Register extends Activity  {
 
         @Override
         protected Object doInBackground(Object[] params) {
-
-
             String email = inputemail.getText().toString();
             String pseudo = inputPseudo.getText().toString();
             String Password = inputCPwd.getText().toString();
             String Server = new AppMethod().ServerRiot(valueOfSpinner);
             JSONObject apiMethod =new APIMethod().getInfoSummonerByPseudo(pseudo, Server);
-
-            int level = 0;
             int SummonerIds=0;
-            int profileIconId=0;
-            String Rank = null;
+
             try {
                 SummonerIds= apiMethod.getJSONObject(pseudo.toLowerCase()).getInt("id");
-                level =apiMethod.getJSONObject(pseudo.toLowerCase()).getInt("summonerLevel");
-                profileIconId =apiMethod.getJSONObject(pseudo.toLowerCase()).getInt("profileIconId");
-                Rank = new APIMethod().getRankUser(SummonerIds, Server);
-                /*JSONObject Summoner =new APIMethod().getInfoSummonerById(SummonerIds, Server);
-                JSONArray jsonArray = Summoner.getJSONArray(String.valueOf(SummonerIds));
-
-                JSONObject data = jsonArray.getJSONObject(0);
-
-                JSONArray dataDivision = data.getJSONArray("entries");
-                JSONObject data2 = dataDivision.getJSONObject(0);
-                test2 =data2.getString("division");
-                Division = data.getString("tier");
-                Log.d("Icon", String.valueOf(profileIconId));*/
-
 
             } catch (JSONException e) {
             e.printStackTrace();
         }
 
-            Log.d("Rank",Rank);
+
             List<NameValuePair> parameters = new ArrayList<>();
             parameters.add(new BasicNameValuePair("pseudo",pseudo));
             parameters.add(new BasicNameValuePair("email",email));
             parameters.add(new BasicNameValuePair("Password",Password));
             parameters.add(new BasicNameValuePair("Server",Server));
-            parameters.add(new BasicNameValuePair("Rank",Rank));
-            parameters.add(new BasicNameValuePair("Level",Integer.toString(level)));
             parameters.add(new BasicNameValuePair("SummonerIds",Integer.toString(SummonerIds)));
-            parameters.add(new BasicNameValuePair("profileIconId",Integer.toString(profileIconId)));
-
-
             int success = 0;
-
-
                     try {
 
                         JSONObject json = JSONParser.makeHttpRequest(Url_Register,parameters);
@@ -171,9 +144,7 @@ public class Register extends Activity  {
                         }else{
                             success =0;
                         }
-
         }
-
         catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -190,7 +161,7 @@ public class Register extends Activity  {
                 Toast.makeText(getApplication(), "Vous pouvez désormais vous connecter", Toast.LENGTH_LONG).show();
             }
             else {
-                Toast.makeText(getApplication(), "Bêtise", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplication(), "Impossible de créer votre compte", Toast.LENGTH_LONG).show();
             }
         }
     }
