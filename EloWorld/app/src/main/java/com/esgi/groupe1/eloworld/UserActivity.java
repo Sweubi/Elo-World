@@ -24,6 +24,7 @@ public class UserActivity extends Activity {
     SQLiteHandler db ;
     ImageView profil;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

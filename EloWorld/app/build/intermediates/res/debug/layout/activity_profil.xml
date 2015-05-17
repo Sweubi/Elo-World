@@ -7,11 +7,10 @@
     tools:context="com.esgi.groupe1.eloworld.ProfilActivity">
 
     <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="8dp" />
+        android:id="@+id/networkImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/activity_profil.xml -->

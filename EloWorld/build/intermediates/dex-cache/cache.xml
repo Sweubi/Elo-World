@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-fa755116becc2c0c59c980d0e110357875a1aea4.jar" />
+    </item>
+    <item
         jar="C:\Users\manouana\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -9,11 +16,25 @@
         <dex dex="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c3a0802891a5d086ef1efebe56110156405a5dfe.jar" />
     </item>
     <item
+        jar="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\volley\volley.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\volley-665193bf5fa5374b696a1ac1b25e0384eb3c4bc1.jar" />
+    </item>
+    <item
         jar="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-619352b6f20a3e6e2d2412c825e35ce166056048.jar" />
+    </item>
+    <item
+        jar="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-61d67cf79a3228fe22fc67d35bd582edd01b6540.jar" />
     </item>
     <item
         jar="C:\Users\manouana\Desktop\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"

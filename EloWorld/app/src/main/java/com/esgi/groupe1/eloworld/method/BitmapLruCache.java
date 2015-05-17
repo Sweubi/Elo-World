@@ -3,12 +3,12 @@ package com.esgi.groupe1.eloworld.method;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
-/*import com.android.volley.toolbox.ImageLoader;*/
+import com.android.volley.toolbox.ImageLoader;
 
 /**
  * Created by Christopher on 16/05/2015.
  */
-public class BitmapLruCache extends LruCache<String, Bitmap> /*implements ImageLoader.ImageCache*/ {
+public class BitmapLruCache extends LruCache<String, Bitmap> implements ImageLoader.ImageCache {
 
 
 
@@ -24,7 +24,7 @@ public class BitmapLruCache extends LruCache<String, Bitmap> /*implements ImageL
         super(maxSize);
     }
 
-    /*@Override
+    @Override
     public Bitmap getBitmap(String url) {
         return get(url);
     }
@@ -32,7 +32,7 @@ public class BitmapLruCache extends LruCache<String, Bitmap> /*implements ImageL
     @Override
     public void putBitmap(String url, Bitmap bitmap) {
         put(url, bitmap);
-    }*/
+    }
     public static int getDefaultLruCacheSize() {
         final int maxMemory =
                 (int) (Runtime.getRuntime().maxMemory() / 1024);

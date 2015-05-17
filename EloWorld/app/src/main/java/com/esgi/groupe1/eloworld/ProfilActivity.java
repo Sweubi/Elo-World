@@ -1,29 +1,38 @@
 package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
-
-
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
+import com.esgi.groupe1.eloworld.method.BitmapLruCache;
+import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
+
+import java.util.HashMap;
+
 
 public class ProfilActivity extends Activity {
-  /* ImageLoader.ImageCache imageCache;
-    NetworkImageView view ;*/
+    String url ;
+    SQLiteHandler  db ;
+    NetworkImageView networkImageView;
 
-
-    private static  final  String url = "http://avatar.leagueoflegends.com/euw/sweubi.png";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
-      /*  imageCache= new BitmapLruCache();
-        ImageLoader imageLoader=new  ImageLoader(Volley.newRequestQueue(getApplicationContext()),imageCache);
-        view = (NetworkImageView) findViewById(R.id.thumbnail);
-        view.setImageUrl(url, imageLoader);*/
-
-
+        db = new SQLiteHandler(getApplicationContext());
+        HashMap<String,Object> user =db.getUser();
+        String pseudo = (String) user.get("pseudo");
+        setTitle(pseudo);
+        url = "http://avatar.leagueoflegends.com/euw/"+pseudo+".png";
+        networkImageView = (NetworkImageView) findViewById(R.id.networkImageView);
+        ImageLoader.ImageCache imageCache = new BitmapLruCache();
+        ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(getApplicationContext()), imageCache);
+        networkImageView.setImageUrl(url, imageLoader);
     }
 
     @Override
