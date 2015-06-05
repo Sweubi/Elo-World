@@ -10,9 +10,10 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
-        <item name="android:background">#263238</item>
+
+        <item name="android:background">@color/base_background</item>
     </style>
-    <style name="action" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse"><item name="android:background">#263238</item></style>
+    <style name="action" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse"><item name="android:background">@color/base_background</item></style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">

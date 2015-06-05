@@ -2,16 +2,41 @@ package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
+
+import java.util.HashMap;
+import java.util.List;
 
 
 public class SettingsActivity extends Activity {
+    ListView listView;
+    SQLiteHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        db = new SQLiteHandler(getApplicationContext());
+        HashMap<String,Object> user =db.getUser();
+        String pseudo = (String) user.get("pseudo");
+        String email = (String) user.get("email");
+        String value = null;
+        String[] values = new String[]{pseudo,email};
+        for (int i =0;i<values.length;i++){
+           value = values[i];
+        }
+        Log.d("values",value);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,values);
+        listView = (ListView)findViewById(R.id.settingslist);
+        listView.setAdapter(arrayAdapter);
+
+
     }
 
     @Override

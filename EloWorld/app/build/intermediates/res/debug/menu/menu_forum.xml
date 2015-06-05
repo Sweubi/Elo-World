@@ -1,7 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.esgi.groupe1.eloworld.ForumActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_forum_add" android:title="@string/action_settings"
+       android:icon="@drawable/ic_action_new" android:showAsAction="always" />
+
 </menu>
 <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/menu/menu_forum.xml -->

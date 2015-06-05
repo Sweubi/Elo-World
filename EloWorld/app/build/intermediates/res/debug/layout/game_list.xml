@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin_register"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+     <com.android.volley.toolbox.NetworkImageView
+         android:layout_alignParentLeft="true"
+         android:id="@+id/square"
+         android:layout_width="80dp"
+         android:layout_height="80dp"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="5dp"
+         android:layout_marginTop="5dp"
+         android:layout_alignBottom="@+id/spell2" />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_toRightOf="@+id/square"
+        android:id="@+id/spell1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"/>
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_toRightOf="@+id/spell1"
+            android:id="@+id/item0"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"/>
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_toRightOf="@+id/item0"
+            android:id="@+id/item1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"/>
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_toRightOf="@+id/item1"
+            android:id="@+id/item2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"/>
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/spell2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/square"
+        android:layout_below="@+id/spell1"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        />
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/item3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/spell2"
+            android:layout_below="@+id/spell1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            />
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/item4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/item3"
+            android:layout_below="@+id/spell1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            />
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/item5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/item4"
+            android:layout_below="@+id/spell1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            />
+    <LinearLayout
+        android:layout_below="@+id/square"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/linearLayout">
+       <TextView
+
+           android:layout_margin="5dp"
+           android:textSize="18dp"
+           android:text="@string/kills"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tkills"
+            android:layout_margin="5dp"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:textSize="18dp"
+            android:text="@string/deaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tdeaths"
+            android:textSize="18dp"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_margin="5dp"
+            android:text="@string/assists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tassists"
+            android:textSize="18dp"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/game_list.xml -->

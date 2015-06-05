@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <EditText
+        android:id="@+id/searchEdit"
+        android:textColorHint="#004d40"
+        android:textColor="@color/text_color_white"
+        android:layout_marginLeft="18dp"
+        android:imeOptions="actionSearch"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:hint="@string/action_search"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/searchImageV"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_search"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>
+
+
+
+</merge><!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/edittext_search.xml -->

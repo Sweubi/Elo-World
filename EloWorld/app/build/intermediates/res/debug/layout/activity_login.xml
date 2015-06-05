@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.esgi.groupe1.eloworld.Login"
-    android:background="#263238">
+    android:background="@color/base_background">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:padding="10dp"
             android:layout_below="@+id/logo"
             android:id="@+id/email"
-            android:textColor="#fff"
+            android:textColor="@color/text_color_white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/edittext_top_bg"
@@ -57,7 +57,9 @@
             android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
-    <RelativeLayout
+
+
+   <RelativeLayout
         android:layout_width="160dp"
         android:layout_height="80dp"
         android:background="#004d40"
@@ -106,56 +108,7 @@
 
     </RelativeLayout>
 
-       <!--<RelativeLayout
-           android:orientation="horizontal"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-
-           android:layout_alignParentBottom="true"
-           android:layout_below="@+id/l1">
-
-          <TextView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/lostpsswd"
-               android:text="@string/forgot_password"
-               android:textColor="#fff"
-               android:layout_alignParentStart="true"
-               android:layout_marginStart="230dp"
-               android:layout_alignParentBottom="true" />
-           <RelativeLayout
-               android:layout_margin="10dp"
-               android:layout_width="160dp"
-               android:layout_height="80dp"
-               android:background="#004d40"
-
-               android:layout_alignParentBottom="true">
-               <ImageView
-                   android:layout_width="70dp"
-                   android:layout_height="70dp"
-                   android:layout_centerVertical="true"
-                   android:src="@drawable/ic_action_person"
-                  android:layout_alignParentLeft="true"
-                   android:id="@+id/imageView" />
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/nouveau"
-                   android:text="@string/new_compte"
-                   android:textColor="#fff"
-                   android:layout_centerVertical="true"
-                   android:layout_toEndOf="@+id/imageView" />
-
-            </RelativeLayout>
-           <TextView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/nouveau"
-               android:text="@string/new_compte"
-               android:textColor="#fff"
-               android:layout_alignParentBottom="true" />
 
 
-    </RelativeLayout>-->
 </RelativeLayout>
 <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/activity_login.xml -->

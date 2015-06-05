@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+
+        <shape><solid android:color="#37474f"/>
+
+        </shape>
+
+    </item>
+    <item  android:state_pressed="true" >
+        <shape>
+            <solid
+                android:color="#eceff1" />
+            <stroke
+                android:width="1dp"
+                android:color="#cfd8dc" />
+            <corners
+                android:radius=".05dp" />
+        </shape>
+    </item>
+
+</selector><!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/drawable/bg_list.xml -->

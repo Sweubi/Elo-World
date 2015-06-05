@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Elo World</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">paramètres</string>
+    <string name="app_name">EloWorld</string>
+    <string name="action_settings">Paramètres</string>
     <string name="logo">logo</string>
     <string name="connexion">CONNEXION</string>
     <string name="inscription">INSCRIPTION</string>
@@ -20,6 +19,8 @@
     <string name="forgot_password">Mot de passe perdu ?</string>
     <string name="send">Envoyer</string>
     <string name="cancel">Annuler</string>
+    <string name="action_search">Rechercher </string>
+
 
 
     <string-array name="region">
@@ -42,9 +43,15 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Paramètres</string>
     <string name="title_activity_forum">Forum</string>
     <string name="title_activity_messenger">Messagerie</string>
     <string name="title_activity_profil">ProfilActivity</string>
+    <string name="title_activity_search">Résultat</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="kills">kills :</string>
+    <string name="deaths">Deaths :</string>
+    <string name="assists">assists :</string>
 
 </resources>

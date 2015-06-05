@@ -35,7 +35,7 @@ public class APIMethod {
     @param String Server
     @return JSON
      */
-    public static JSONObject getInfoSummonerById(int idSummoner,String server){
+    public JSONObject getInfoSummonerById(int idSummoner,String server){
         String url ="https://"+server+".api.pvp.net/api/lol/"+server+"/v2.5/league/by-summoner/"+idSummoner+"/entry?api_key=08324d59-9c27-4aff-9942-2a86e04654e0";
         JSONObject json = JSONParser.makeHttpRequestAPI(url);
         return json;
@@ -46,7 +46,7 @@ public class APIMethod {
     @param String Server
     @return The Summoner division in RANKED_SOLO_5x5
      */
-    public static String getRankUser(int SummonerIds,String Server) throws JSONException {
+    public  String getRankUser(int SummonerIds,String Server) throws JSONException {
         String rank;
         JSONObject Summoner =new APIMethod().getInfoSummonerById(SummonerIds, Server);
         JSONArray jsonArray = Summoner.getJSONArray(String.valueOf(SummonerIds));
@@ -62,6 +62,37 @@ public class APIMethod {
         return rank;
 
     }
+    /*
+    This object contains recent games information.
+    @param int Summoner Id
+    @param String Server
+    @return
+     */
+    public static final JSONObject getGames(){
+        String url = "https://euw.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/57733317/recent?api_key=08324d59-9c27-4aff-9942-2a86e04654e0";
+        JSONObject jsonObject = JSONParser.makeHttpRequestAPI(url);
+
+        return jsonObject;
+    }
+
+    public static JSONObject championInfo(int idChamp){
+        String url = "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/"+idChamp+"?api_key=08324d59-9c27-4aff-9942-2a86e04654e0";
+        JSONObject object = JSONParser.makeHttpRequestAPI(url);
+
+
+        return object;
+
+    }
+
+    public  static  JSONObject summonerSpell(int idspell){
+        String url = "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/"+idspell+"?api_key=08324d59-9c27-4aff-9942-2a86e04654e0";
+        JSONObject object = JSONParser.makeHttpRequestAPI(url);
+
+
+        return object;
+    }
+
+
 
 
 }

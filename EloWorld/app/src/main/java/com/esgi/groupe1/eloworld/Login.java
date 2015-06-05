@@ -2,11 +2,14 @@ package com.esgi.groupe1.eloworld;
 
 
 import android.app.FragmentTransaction;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +30,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -43,7 +47,8 @@ public class Login extends FragmentActivity {
     Button btLogin;
     SQLiteHandler db;
 
-    public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";
+    /*public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";*/
+    public static final String URL_LOGIN ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/connexion/connexion.php";
     private static final String TAG_SUCCESS = "success";
     private SessionManager session;
 
@@ -71,17 +76,22 @@ public class Login extends FragmentActivity {
         btLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                inputemail.setError(null);
+                inputpassword.setError(null);
                 String email = inputemail.getText().toString();
                 String password = inputpassword.getText().toString();
                 if (session.isOnline()) {
                     //If not empty
                     if (email.trim().length() > 0 && password.trim().length() > 0) {
 
-                        //db.addUser(email);
-
                         new Logintask().execute();
                     } else {
-                        Toast.makeText(getApplication(), "Veuillez remplir tous les champs!", Toast.LENGTH_LONG).show();
+
+                        if(email.trim().length() <= 0){
+                            inputemail.setError("Veuillez remplir le champ");
+                        }if (password.trim().length() <= 0){
+                            inputpassword.setError("Veuillez remplir le champ");
+                        }
                     }
                 }else {
                     Toast.makeText(getApplication(), "pas de connexion", Toast.LENGTH_LONG).show();
@@ -144,7 +154,6 @@ public class Login extends FragmentActivity {
             dialog.setIndeterminate(false);
             dialog.setCancelable(false);
             dialog.show();
-
         }
 
         @Override
@@ -153,12 +162,13 @@ public class Login extends FragmentActivity {
             parameters.add(new BasicNameValuePair("email",email));
             parameters.add(new BasicNameValuePair("Password", password));
             JSONObject object = new JSONParser().makeHttpRequest(URL_LOGIN, parameters);
+
             int retour = 0;
 
             try {
 
                 int success = object.getInt(TAG_SUCCESS);
-                int idUser =object.getInt("idUser");
+                int idUser = object.getInt("idUser");
                 String pseudo = object.getString("pseudo");
                 String server = object.getString("Server");
                 int idSummoner =object.getInt("summonerIds");
@@ -196,6 +206,21 @@ public class Login extends FragmentActivity {
             // Dismiss the progress dialog
             dialog.dismiss();
             if (object==1){
+                db = new SQLiteHandler(getApplicationContext());
+                HashMap<String,Object> user =db.getUser();
+                String pseudo = (String) user.get("pseudo");
+
+                //create notification
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext())
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle("Bienvenue")
+                        .setContentText(pseudo);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                //execut notification with  NotificationManager
+                mNotificationManager.notify(1,builder.build());
+
+
                 Toast.makeText(getApplication(), "Welcome", Toast.LENGTH_LONG).show();
             }
             else {

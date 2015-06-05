@@ -1,18 +1,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto"
     tools:context="com.esgi.groupe1.eloworld.UserActivity">
-    <item android:id="@+id/action_settings"
-
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"/>
-
     <item android:id="@+id/action_logout"
         android:title="Quitter"
-        android:orderInCategory="101"
-        android:icon="@drawable/ic_logout"
-        android:showAsAction="never"
+        android:icon="@drawable/ic_action_disconnect"
+        android:showAsAction="always"
+        tools:ignore="AppCompatResource"
         />
-   >
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:icon="@drawable/ic_action_settings"
+        android:showAsAction="always"
+        tools:ignore="AppCompatResource" />
+
+
+    <item android:id="@+id/action_chat"
+
+        android:title="@string/title_activity_messenger"
+        android:icon="@drawable/ic_action_chat"
+        android:showAsAction="ifRoom|withText"
+        tools:ignore="AppCompatResource"/>
+
+
+    <item android:id="@+id/action_me"
+        android:title="@string/title_activity_user_profil"
+        android:icon="@drawable/ic_action_profil"
+        android:showAsAction="always"
+        tools:ignore="AppCompatResource"/>
+
+    <item android:id="@+id/action_foum"
+        android:title="@string/title_activity_forum"
+        android:showAsAction="always"
+        tools:ignore="AppCompatResource"/>
+    />
+
 
 </menu>

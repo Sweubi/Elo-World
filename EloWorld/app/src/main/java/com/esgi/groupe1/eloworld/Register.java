@@ -1,17 +1,21 @@
 package com.esgi.groupe1.eloworld;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,19 +31,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Register extends Activity  {
+public class Register extends Activity  implements ViewTreeObserver.OnScrollChangedListener{
     EditText inputemail,inputPwd,inputCPwd, inputPseudo;
     Spinner region;
     Button inscription;
     String valueOfSpinner;
     ProgressDialog dialog;
+    private ActionBar actionBar;
+    ScrollView scrollView;
+    float mActionBarHeight;
     private static final String TAG_SUCCESS = "success";
-    public static final String Url_Register ="http://192.168.31.1/eloworldweb/Code/WebService/inscription/inscription.php";
+    public static final String Url_Register ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/inscription/inscription.php";
+    /*public static final String Url_Register ="http://192.168.31.1/eloworldweb/Code/WebService/inscription/inscription.php";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        final TypedArray styledAttributes = getTheme().obtainStyledAttributes(
+                new int[] { android.R.attr.actionBarSize });
+        mActionBarHeight = styledAttributes.getDimension(0, 0);
+        styledAttributes.recycle();
+        actionBar = getActionBar();
+        scrollView= (ScrollView) findViewById(R.id.parent);
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(this);
 
         inputPseudo = (EditText) findViewById(R.id.pseudo);
         inputemail = (EditText) findViewById(R.id.email);
@@ -92,6 +107,19 @@ public class Register extends Activity  {
             }
         });
     }
+
+    @Override
+    public void onScrollChanged() {
+        scrollView = (ScrollView) findViewById(R.id.parent);
+        float y = scrollView.getScrollY();
+        if (y >= mActionBarHeight && actionBar.isShowing()) {
+            actionBar.hide();
+        } else if ( y==0 && !actionBar.isShowing()) {
+            actionBar.show();
+        }
+
+    }
+
 
     class Newuser extends AsyncTask {
 

@@ -57,6 +57,16 @@ public class AppMethod {
         }
         return rioServer;
     }
+
+    public  String urlItem(int idItem){
+        String url = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/"+idItem+".png";
+        return url;
+    }
+
+    public  String urlSpell(String key){
+        String url = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/spell/"+key+".png";
+        return url;
+    }
    /* private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager;
         connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

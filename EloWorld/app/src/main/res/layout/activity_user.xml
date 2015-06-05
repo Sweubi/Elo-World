@@ -1,40 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.esgi.groupe1.eloworld.UserActivity">
-    <LinearLayout
-        android:id="@+id/l1"
-       android:padding="5dp"
+    tools:context="com.esgi.groupe1.eloworld.UserActivity"
+    android:paddingTop="?android:attr/actionBarSize">
+    <include layout="@layout/edittext_search"/>
+    <ListView
+        android:id="@+id/list_games"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#e0f2f1"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="wrap_content"/>
 
-        <ImageView
-
-            android:id="@+id/profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_person_green"/>
-
-        <ImageView
-            android:id="@+id/forum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_group"/>
-        <ImageView
-            android:id="@+id/messenger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_chat"/>
-        <ImageView
-            android:id="@+id/new_art"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_new"/>
-    </LinearLayout>
-
-   
-</RelativeLayout>
+</LinearLayout>

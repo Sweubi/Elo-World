@@ -37,6 +37,11 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
+    <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
+    <eat-comment/>
+    <color name="base_background">#263238</color>
+    <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -45,6 +50,9 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
+    <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
+    <eat-comment/>
+    <color name="color_100">#b2dfdb</color>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/common_colors.xml -->
     <eat-comment/>
     <color name="common_action_bar_splitter">#d2d2d2</color>
@@ -90,6 +98,11 @@
     <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
+    <eat-comment/>
+    <color name="text_color_blue">#006064</color>
+    <color name="text_color_teal">#004d40</color>
+    <color name="text_color_white">#fff</color>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_colors.xml -->
     <eat-comment/>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
@@ -222,8 +235,10 @@
     <string name="accept">Accept</string>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="action_settings">paramètres</string>
-    <string name="app_name">Elo World</string>
+    <string name="action_search">Rechercher </string>
+    <string name="action_settings">Paramètres</string>
+    <string name="app_name">EloWorld</string>
+    <string name="assists">assists :</string>
     <string name="cancel">Annuler</string>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/common_strings.xml -->
     <eat-comment/>
@@ -262,6 +277,11 @@
     <eat-comment/>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
+    <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="deaths">Deaths :</string>
+    <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_strings.xml -->
+    <eat-comment/>
     <string name="decline">Decline</string>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
     <eat-comment/>
@@ -273,6 +293,7 @@
     <string name="input_email">Email</string>
     <string name="input_pseudo">Pseudo League of Legends </string>
     <string name="inscription">INSCRIPTION</string>
+    <string name="kills">kills :</string>
     <string name="logo">logo</string>
     <string name="new_compte">Créer un compte</string>
     <string name="register">Inscription</string>
@@ -290,7 +311,8 @@
     <string name="title_activity_messenger">Messagerie</string>
     <string name="title_activity_profil">ProfilActivity</string>
     <string name="title_activity_register">Créez votre compte</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_search">Résultat</string>
+    <string name="title_activity_settings">Paramètres</string>
     <string name="title_activity_user">Mon espace </string>
     <string name="title_activity_user_profil">UserProfilActivity</string>
     <string name="title_register">Rejoignez-nous !</string>
@@ -305,7 +327,8 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
-        <item name="android:background">#263238</item>
+
+        <item name="android:background">@color/base_background</item>
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:actionBarStyle">@style/action</item>
@@ -1399,7 +1422,7 @@
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
     <!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/values/styles.xml -->
     <eat-comment/>
-    <style name="action" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse"><item name="android:background">#263238</item></style>
+    <style name="action" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse"><item name="android:background">@color/base_background</item></style>
     <style name="font" parent="@android:style/TextAppearance">
         <item name="android:textColor">#fff</item>
     </style>

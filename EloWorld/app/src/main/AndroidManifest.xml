@@ -54,19 +54,15 @@
         </activity>
         <activity
             android:name=".UserActivity"
-            android:label="@string/title_activity_user" >
-        </activity>
-        <!--
-        <activity
-            android:name=".DialogEmail"
-            android:label="@string/title_activity_dialog_email"
-            android:parentActivityName=".Login"
-            android:theme="@android:style/Theme.Holo.Dialog" >
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow" >
+
+            <!-- android:uiOptions="splitActionBarWhenNarrow" -->
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.Login" />
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
-        -->
+
         <activity
             android:name=".ChangePasswordActivity"
             android:label="@string/title_activity_change_password" >
@@ -90,14 +86,29 @@
         <activity
             android:name=".ChangePasswordActivity$ProfilActivity"
             android:label="@string/title_activity_profil"
-            android:parentActivityName=".UserActivity" >
+            android:parentActivityName=".UserActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.UserActivity" />
         </activity>
+        <!-- android:uiOptions="splitActionBarWhenNarrow" -->
         <activity
             android:name=".ProfilActivity"
             android:label="@string/title_activity_profil"
+            android:parentActivityName=".UserActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search"
             android:parentActivityName=".UserActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
