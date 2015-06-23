@@ -23,4 +23,4 @@
         android:layout_alignBottom="@+id/thumbnail"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
-<!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/layout/list_row.xml -->
+<!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/layout/list_row.xml -->

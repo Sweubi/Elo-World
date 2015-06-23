@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.esgi.groupe1.eloworld.TopicsActivity">
+
+    <item android:id="@+id/reload" android:title="@string/trefrech"
+        android:icon="@drawable/ic_action_reload"
+        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/editTopic" android:title="@string/add" android:icon="@drawable/ic_action_edit"
+        android:showAsAction="always"/>
+</menu>
+<!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/menu/menu_topics.xml -->

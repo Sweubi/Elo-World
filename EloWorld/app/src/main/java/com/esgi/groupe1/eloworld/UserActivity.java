@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
@@ -36,9 +37,11 @@ import java.util.HashMap;
 public class UserActivity extends Activity  {
     private SessionManager session;
     SQLiteHandler db ;
-
     EditText editTextSearch;
     ImageView searchImageV;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,9 +114,10 @@ public class UserActivity extends Activity  {
         }if (id == R.id.action_me){
             Intent intent = new Intent(getApplicationContext(),ProfilActivity.class);
             startActivity(intent);
-        }/*if (id == R.id.action_settings){
-            return true;
-        }*/
+        }if (id == R.id.action_foum){
+            Intent intent = new Intent(getApplicationContext(),ForumActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }

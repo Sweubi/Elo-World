@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/searchEdit"
         android:textColorHint="#004d40"
-        android:textColor="@color/text_color_white"
+        android:textColor="@color/base_background"
         android:layout_marginLeft="18dp"
         android:imeOptions="actionSearch"
         android:layout_marginTop="5dp"

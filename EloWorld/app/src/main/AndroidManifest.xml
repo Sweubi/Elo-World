@@ -5,7 +5,7 @@
     android:versionName="Bêta" >
 
     <uses-sdk
-        android:minSdkVersion="17"
+        android:minSdkVersion="15"
         android:targetSdkVersion="22" />
 
     <uses-permission
@@ -16,7 +16,7 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-    !--  Internet Permissions -->
+    <!-- Internet Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -37,12 +37,13 @@
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SansActionTheme" >
-            <meta-data
+            android:parentActivityName=".MainActivity" >
+
+            <!--
+                <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.MainActivity" />
+            -->
         </activity>
         <activity
             android:name=".Register"
@@ -62,7 +63,6 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-
         <activity
             android:name=".ChangePasswordActivity"
             android:label="@string/title_activity_change_password" >
@@ -101,7 +101,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.UserActivity" />
-
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -113,6 +112,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.UserActivity" />
+        </activity>
+        <activity
+            android:name=".TopicsActivity"
+            android:label="@string/title_activity_topics"
+            android:parentActivityName=".ForumActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.ForumActivity" />
+        </activity>
+        <activity
+            android:name=".PostActivity"
+            android:label="@string/title_activity_post"
+            android:parentActivityName=".TopicsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.TopicsActivity" />
         </activity>
     </application>
 

@@ -1,6 +1,7 @@
 package com.esgi.groupe1.eloworld;
 
 
+import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Login extends FragmentActivity {
+public class Login extends FragmentActivity  {
 
     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
     APIMethod apiMethod = new APIMethod();
@@ -58,6 +59,10 @@ public class Login extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ActionBar bar = getActionBar();
+        bar.setDisplayHomeAsUpEnabled(false);
+        bar.setDisplayUseLogoEnabled(false);
+
         session = new SessionManager(getApplicationContext());
 
         // Check if user is already logged in or not
@@ -67,11 +72,11 @@ public class Login extends FragmentActivity {
             startActivity(intent);
             finish();
         }
-        newaccount = (TextView) findViewById(R.id.nouveau);
+        //newaccount = (TextView) findViewById(R.id.nouveau);
         inputemail = (EditText) findViewById(R.id.email);
         inputpassword =(EditText)findViewById(R.id.password);
         btLogin = (Button)findViewById(R.id.btnlog);
-        reset = (RelativeLayout)findViewById(R.id.reset);
+        //reset = (RelativeLayout)findViewById(R.id.reset);
 
         btLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -99,7 +104,7 @@ public class Login extends FragmentActivity {
             }
         });
 
-        newaccount.setOnClickListener(new View.OnClickListener() {
+       /* newaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent account = new Intent(getApplicationContext(),Register.class);
@@ -116,7 +121,7 @@ public class Login extends FragmentActivity {
                 dialogEmail.show(fragmentTransaction, "Dialog");
 
             }
-        });
+        });*/
     }
 
     @Override
@@ -134,10 +139,10 @@ public class Login extends FragmentActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.newAccount) {
+            Intent intent = new Intent(getApplicationContext(), Register.class);
+            startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -150,7 +155,7 @@ public class Login extends FragmentActivity {
             email = inputemail.getText().toString();
             password = inputpassword.getText().toString();
             dialog = new ProgressDialog(Login.this);
-            dialog.setMessage("Connexion..");
+            dialog.setMessage("Connexion...");
             dialog.setIndeterminate(false);
             dialog.setCancelable(false);
             dialog.show();
@@ -168,7 +173,7 @@ public class Login extends FragmentActivity {
             try {
 
                 int success = object.getInt(TAG_SUCCESS);
-                int idUser = object.getInt("idUser");
+                int idUser = object.optInt("idUser");
                 String pseudo = object.getString("pseudo");
                 String server = object.getString("Server");
                 int idSummoner =object.getInt("summonerIds");
@@ -205,6 +210,7 @@ public class Login extends FragmentActivity {
         protected void onPostExecute(Integer object) {
             // Dismiss the progress dialog
             dialog.dismiss();
+            Log.d("Mon objet de retour", String.valueOf(object));
             if (object==1){
                 db = new SQLiteHandler(getApplicationContext());
                 HashMap<String,Object> user =db.getUser();

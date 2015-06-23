@@ -1,33 +1,54 @@
 package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.Toast;
 
+import com.esgi.groupe1.eloworld.method.JSONParser;
+import com.esgi.groupe1.eloworld.method.SessionManager;
 import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
 public class SettingsActivity extends Activity {
+    SessionManager session;
     ListView listView;
     SQLiteHandler db;
+    HashMap<String,Object> user;
+    String url_delete ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/divers/delete.php";
+    Button buttonD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        session = new SessionManager(getApplicationContext());
         db = new SQLiteHandler(getApplicationContext());
-        HashMap<String,Object> user =db.getUser();
+        user =db.getUser();
         String pseudo = (String) user.get("pseudo");
         String email = (String) user.get("email");
+        String setPwd = "Modifier votre mot de passe";
+
         String value = null;
-        String[] values = new String[]{pseudo,email};
+        final String[] values = new String[]{pseudo,email,setPwd,getResources().getString(R.string.logout)};
         for (int i =0;i<values.length;i++){
            value = values[i];
         }
@@ -35,6 +56,44 @@ public class SettingsActivity extends Activity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,values);
         listView = (ListView)findViewById(R.id.settingslist);
         listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String Maposition = String.valueOf(parent.getItemAtPosition(position));
+                Log.d("id",String.valueOf(id));
+                Log.d("value",String.valueOf(Maposition));
+                /*if (Maposition.equals(String.valueOf(parent.getItemAtPosition(position)))){
+                    logout();
+                }else {
+                    Log.d("Ma position","Non");
+                }*/
+                switch ((int) id){
+                    case 0:
+                        Log.d("test","0");
+                        break;
+                    case 1:
+                        Log.d("test","1");
+                        break;
+                    case 2:
+                        Log.d("test","0");
+                        break;
+                    case 3:
+                        Log.d("test","0");
+                        logout();
+                        break;
+                }
+
+
+
+            }
+        });
+        buttonD = (Button) findViewById(R.id.deleteBt);
+        buttonD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DeleteUser().execute();
+            }
+        });
 
 
     }
@@ -59,5 +118,32 @@ public class SettingsActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    class DeleteUser extends AsyncTask{
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            List<NameValuePair> parameters = new ArrayList<>();
+            parameters.add(new BasicNameValuePair("idUser",String.valueOf(user.get("idUser"))));
+            Log.d("lool",String.valueOf(user.get("idUser")));
+            JSONObject object = new JSONParser().makeHttpRequest(url_delete, parameters);
+            return object;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            logout();
+            Toast.makeText(getApplicationContext(),"Bay",Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void logout() {
+        session.setLogin(false);
+        db.deleteUsers();
+        // Launching the login activity
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        finish();
     }
 }

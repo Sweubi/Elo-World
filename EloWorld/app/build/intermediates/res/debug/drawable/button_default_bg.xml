@@ -8,7 +8,7 @@
                 android:width="1dp"
                 android:color="#d2d2d2" />
             <corners
-                android:radius="10dp" />
+                android:radius="1dp" />
 
         </shape>
     </item>
@@ -26,4 +26,4 @@
 
         </shape>
     </item>
-</selector><!-- From: file:/C:/Users/manouana/Desktop/AndroidStudioProjects/EloWorld/app/src/main/res/drawable/button_default_bg.xml -->
+</selector><!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/drawable/button_default_bg.xml -->

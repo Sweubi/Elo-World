@@ -15,6 +15,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.esgi.groupe1.eloworld.RiotGameAPI.APIMethod;
+import com.esgi.groupe1.eloworld.adapter.GameAdapter;
 import com.esgi.groupe1.eloworld.method.BitmapLruCache;
 import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
 import org.json.JSONArray;
@@ -84,12 +85,11 @@ public class ProfilActivity extends Activity  {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog = new ProgressDialog(ProfilActivity.this);
-            dialog.setMessage("Téléchargement de vos données");
+            /*dialog = new ProgressDialog(ProfilActivity.this);
+            dialog.setMessage("Chargement en cours...");
             dialog.setIndeterminate(false);
             dialog.setCancelable(false);
-            dialog.show();
-
+            dialog.show();*/
         }
 
         @Override
@@ -140,7 +140,7 @@ public class ProfilActivity extends Activity  {
         @Override
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
-            dialog.dismiss();
+            //dialog.dismiss();
             List mesgames = (List)o;
             ListAdapter listAdapter = new GameAdapter(ProfilActivity.this,mesgames);
             listView = (ListView) findViewById(R.id.list_matches);

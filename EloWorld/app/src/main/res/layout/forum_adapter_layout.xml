@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_margin="@dimen/padding_20"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:background="@drawable/bt_teal"
+        android:textColor="@color/text_color_white"
+        android:id="@+id/idForum"
+        android:layout_marginRight="5dp"
+        android:layout_width="0dp"
+        android:textSize="15dp"
+        android:padding="5dp"
+        android:layout_weight="0.08"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/nameForum"
+        android:layout_gravity="center"
+        android:layout_width="0dp"
+        android:textColor="@color/base_background"
+        android:layout_weight="0.75"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -195,19 +195,19 @@ public final class R {
 		public static final int abc_config_showMenuShortcutsWhenKeyboardPresent = 0x7f090005;
 	}
 	public static final class color {
-		public static final int abc_background_cache_hint_selector_material_dark = 0x7f0a004d;
-		public static final int abc_background_cache_hint_selector_material_light = 0x7f0a004e;
+		public static final int abc_background_cache_hint_selector_material_dark = 0x7f0a004f;
+		public static final int abc_background_cache_hint_selector_material_light = 0x7f0a0050;
 		public static final int abc_input_method_navigation_guard = 0x7f0a0000;
-		public static final int abc_primary_text_disable_only_material_dark = 0x7f0a004f;
-		public static final int abc_primary_text_disable_only_material_light = 0x7f0a0050;
-		public static final int abc_primary_text_material_dark = 0x7f0a0051;
-		public static final int abc_primary_text_material_light = 0x7f0a0052;
-		public static final int abc_search_url_text = 0x7f0a0053;
+		public static final int abc_primary_text_disable_only_material_dark = 0x7f0a0051;
+		public static final int abc_primary_text_disable_only_material_light = 0x7f0a0052;
+		public static final int abc_primary_text_material_dark = 0x7f0a0053;
+		public static final int abc_primary_text_material_light = 0x7f0a0054;
+		public static final int abc_search_url_text = 0x7f0a0055;
 		public static final int abc_search_url_text_normal = 0x7f0a0001;
 		public static final int abc_search_url_text_pressed = 0x7f0a0002;
 		public static final int abc_search_url_text_selected = 0x7f0a0003;
-		public static final int abc_secondary_text_material_dark = 0x7f0a0054;
-		public static final int abc_secondary_text_material_light = 0x7f0a0055;
+		public static final int abc_secondary_text_material_dark = 0x7f0a0056;
+		public static final int abc_secondary_text_material_light = 0x7f0a0057;
 		public static final int accent_material_dark = 0x7f0a0004;
 		public static final int accent_material_light = 0x7f0a0005;
 		public static final int background_floating_material_dark = 0x7f0a0006;
@@ -245,14 +245,14 @@ public final class R {
 		public static final int primary_text_default_material_light = 0x7f0a0032;
 		public static final int primary_text_disabled_material_dark = 0x7f0a0033;
 		public static final int primary_text_disabled_material_light = 0x7f0a0034;
-		public static final int ripple_material_dark = 0x7f0a0035;
-		public static final int ripple_material_light = 0x7f0a0036;
-		public static final int secondary_text_default_material_dark = 0x7f0a0037;
-		public static final int secondary_text_default_material_light = 0x7f0a0038;
-		public static final int secondary_text_disabled_material_dark = 0x7f0a0039;
-		public static final int secondary_text_disabled_material_light = 0x7f0a003a;
-		public static final int switch_thumb_normal_material_dark = 0x7f0a003b;
-		public static final int switch_thumb_normal_material_light = 0x7f0a003c;
+		public static final int ripple_material_dark = 0x7f0a0037;
+		public static final int ripple_material_light = 0x7f0a0038;
+		public static final int secondary_text_default_material_dark = 0x7f0a0039;
+		public static final int secondary_text_default_material_light = 0x7f0a003a;
+		public static final int secondary_text_disabled_material_dark = 0x7f0a003b;
+		public static final int secondary_text_disabled_material_light = 0x7f0a003c;
+		public static final int switch_thumb_normal_material_dark = 0x7f0a003d;
+		public static final int switch_thumb_normal_material_light = 0x7f0a003e;
 	}
 	public static final class dimen {
 		public static final int abc_action_bar_default_height_material = 0x7f0b0000;
@@ -444,7 +444,7 @@ public final class R {
 		public static final int abc_search_dropdown_item_icons_2line = 0x7f040014;
 		public static final int abc_search_view = 0x7f040015;
 		public static final int abc_simple_dropdown_hint = 0x7f040016;
-		public static final int support_simple_spinner_dropdown_item = 0x7f040025;
+		public static final int support_simple_spinner_dropdown_item = 0x7f040028;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0e0000;

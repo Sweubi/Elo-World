@@ -4,12 +4,13 @@
     <string name="app_name">EloWorld</string>
     <string name="action_settings">Paramètres</string>
     <string name="logo">logo</string>
-    <string name="connexion">CONNEXION</string>
+    <string name="connexion">Connexion</string>
     <string name="inscription">INSCRIPTION</string>
     <string name="title_activity_login">Connectez-vous</string>
     <string name="title_activity_register">Créez votre compte</string>
     <string name="input_pseudo">Pseudo League of Legends </string>
     <string name="input_email">Email</string>
+    <string name="input_email_2">Votre adresse électronique</string>
     <string name="imput_pwd">Mot de passe</string>
     <string name="imput_pwd_c">Confirmez mot de passe</string>
     <string name="new_compte">Créer un compte</string>
@@ -20,6 +21,7 @@
     <string name="send">Envoyer</string>
     <string name="cancel">Annuler</string>
     <string name="action_search">Rechercher </string>
+    <string name="delete">Supprimer votre compte</string>
 
 
 
@@ -53,5 +55,12 @@
     <string name="kills">kills :</string>
     <string name="deaths">Deaths :</string>
     <string name="assists">assists :</string>
+    <string name="title_activity_topics">Les sujets</string>
+
+    <string name="topic">Créez votre topic</string>
+    <string name="add">Ajouter</string>
+    <string name="trefrech">rafraichir</string>
+    <string name="logout">Déconnexion</string>
+    <string name="title_activity_post">vos postes</string>
 
 </resources>

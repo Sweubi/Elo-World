@@ -16,7 +16,7 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-    !--  Internet Permissions -->
+    <!-- Internet Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -37,12 +37,13 @@
         <activity
             android:name="com.esgi.groupe1.eloworld.Login"
             android:label="@string/title_activity_login"
-            android:parentActivityName="com.esgi.groupe1.eloworld.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SansActionTheme" >
-            <meta-data
+            android:parentActivityName="com.esgi.groupe1.eloworld.MainActivity" >
+
+            <!--
+                <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.MainActivity" />
+            -->
         </activity>
         <activity
             android:name="com.esgi.groupe1.eloworld.Register"
@@ -111,6 +112,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.UserActivity" />
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.TopicsActivity"
+            android:label="@string/title_activity_topics"
+            android:parentActivityName="com.esgi.groupe1.eloworld.ForumActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.ForumActivity" />
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.PostActivity"
+            android:label="@string/title_activity_post"
+            android:parentActivityName="com.esgi.groupe1.eloworld.TopicsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.esgi.groupe1.eloworld.TopicsActivity" />
         </activity>
 
         <meta-data

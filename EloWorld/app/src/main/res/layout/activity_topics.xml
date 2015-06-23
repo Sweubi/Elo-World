@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.esgi.groupe1.eloworld.TopicsActivity">
+
+    <ListView
+        android:id="@+id/allTopics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_above="@+id/allTopics"
+        android:id="@+id/lTopics"
+        android:background="@color/base_background"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+
+            android:id="@+id/description"
+            android:hint="@string/topic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btAdd"
+            android:text="@string/add"
+            android:background="@drawable/bt_teal"
+            android:layout_width="0dp"
+            android:layout_weight="0.30"
+            android:textColor="@color/text_color_white"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>
