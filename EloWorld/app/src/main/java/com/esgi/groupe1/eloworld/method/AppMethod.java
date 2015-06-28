@@ -1,16 +1,14 @@
 package com.esgi.groupe1.eloworld.method;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
+
+
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 /**
  * Created by Christopher on 28/04/2015.
@@ -28,12 +26,10 @@ public class AppMethod {
     }
     public String PseudoAuthor(String id){
         String pseudo ;
-        Log.d("mon id", id);
         String url = "http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/divers/getPseudo.php";
         List list = new ArrayList();
         list.add(new BasicNameValuePair("idUser",id));
         JSONObject objectPObject = JSONParser.makeHttpRequest(url,list);
-        Log.d("Le pseudo", String.valueOf(objectPObject));
         pseudo = objectPObject.optString("pseudo");
         return pseudo;
     }

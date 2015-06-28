@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
@@ -13,6 +14,7 @@ import com.android.volley.toolbox.Volley;
 import com.esgi.groupe1.eloworld.Games;
 import com.esgi.groupe1.eloworld.R;
 import com.esgi.groupe1.eloworld.method.BitmapLruCache;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
@@ -25,8 +27,8 @@ public class GameAdapter extends ArrayAdapter {
     private Activity activity;
     private List<Games> games;
     TextView kills,deaths,assists;
-    NetworkImageView square,squareSpell1,squareSpell2,i0,i1,i2,i3,i4,i5;
-    String urlsquare,urlSpell1,urlSpell2,urlItem0 ;
+    ImageView square,squareSpell1,squareSpell2,i0,i1,i2,i3,i4,i5;
+
 
 
 
@@ -36,39 +38,10 @@ public class GameAdapter extends ArrayAdapter {
 
     }
 
-   /* @Override
-    public int getCount() {
-        return games.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return games.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }*/
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         convertView = inflater.inflate(R.layout.game_list,parent,false);
-
-        square = (NetworkImageView) convertView.findViewById(R.id.square);
-        squareSpell1 = (NetworkImageView) convertView.findViewById(R.id.spell1);
-        squareSpell2 = (NetworkImageView) convertView.findViewById(R.id.spell2);
-        i0 = (NetworkImageView) convertView.findViewById(R.id.item0);
-        i1 = (NetworkImageView) convertView.findViewById(R.id.item1);
-        i2 = (NetworkImageView) convertView.findViewById(R.id.item2);
-        i3 = (NetworkImageView) convertView.findViewById(R.id.item3);
-        i4 = (NetworkImageView) convertView.findViewById(R.id.item4);
-        i5 = (NetworkImageView) convertView.findViewById(R.id.item5);
-
-        kills = (TextView) convertView.findViewById(R.id.tkills);
-        deaths= (TextView) convertView.findViewById(R.id.tdeaths);
-        assists= (TextView) convertView.findViewById(R.id.tassists);
         Games mesgames = games.get(position);
         String champion =mesgames.getChampion();
         String spell1 = mesgames.getSpell1();
@@ -80,20 +53,29 @@ public class GameAdapter extends ArrayAdapter {
         int item4= mesgames.getIdItem4();
         int item5 = mesgames.getIdItem5();
 
+        square = (ImageView) convertView.findViewById(R.id.square);
+        Picasso.with(getContext()).load(urlChampionSquare(champion)).into(square);
 
+        squareSpell1 = (ImageView) convertView.findViewById(R.id.spell1);
+        Picasso.with(getContext()).load(urlSummonerSpell(spell1)).into(squareSpell1);
+        squareSpell2 = (ImageView) convertView.findViewById(R.id.spell2);
+        Picasso.with(getContext()).load(urlSummonerSpell(spell2)).into(squareSpell2);
+        i0 = (ImageView) convertView.findViewById(R.id.item0);
+        Picasso.with(getContext()).load(urlStuff(item0)).into(i0);
+        i1 = (ImageView) convertView.findViewById(R.id.item1);
+        Picasso.with(getContext()).load(urlStuff(item1)).into(i1);
+        i2 = (ImageView) convertView.findViewById(R.id.item2);
+        Picasso.with(getContext()).load(urlStuff(item2)).into(i2);
+        i3 = (ImageView) convertView.findViewById(R.id.item3);
+        Picasso.with(getContext()).load(urlStuff(item3)).into(i3);
+        i4 = (ImageView) convertView.findViewById(R.id.item4);
+        Picasso.with(getContext()).load(urlStuff(item4)).into(i4);
+        i5 = (ImageView) convertView.findViewById(R.id.item5);
+        Picasso.with(getContext()).load(urlStuff(item5)).into(i5);
 
-
-        ImageLoader.ImageCache imageCache = new BitmapLruCache();
-        ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(getContext()), imageCache);
-        square.setImageUrl(urlChampionSquare(champion),imageLoader);
-        squareSpell1.setImageUrl(urlSummonerSpell(spell1),imageLoader);
-        squareSpell2.setImageUrl(urlSummonerSpell(spell2),imageLoader);
-        i0.setImageUrl(urlStuff(item0),imageLoader);
-        i1.setImageUrl(urlStuff(item1),imageLoader);
-        i2.setImageUrl(urlStuff(item2),imageLoader);
-        i3.setImageUrl(urlStuff(item3),imageLoader);
-        i4.setImageUrl(urlStuff(item4),imageLoader);
-        i5.setImageUrl(urlStuff(item5),imageLoader);
+        kills = (TextView) convertView.findViewById(R.id.tkills);
+        deaths= (TextView) convertView.findViewById(R.id.tdeaths);
+        assists= (TextView) convertView.findViewById(R.id.tassists);
 
         //Log.d("mes games", String.valueOf(champion));
         kills.setText(String.valueOf(mesgames.getKills()));

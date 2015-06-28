@@ -109,82 +109,86 @@ activity#com.esgi.groupe1.eloworld.UserActivity
 ADDED from AndroidManifest.xml:56:9
 	android:label
 		ADDED from AndroidManifest.xml:58:13
-	android:uiOptions
-		ADDED from AndroidManifest.xml:59:13
 	android:name
 		ADDED from AndroidManifest.xml:57:13
 meta-data#android.app.searchable
-ADDED from AndroidManifest.xml:62:13
+ADDED from AndroidManifest.xml:61:13
 	android:resource
-		ADDED from AndroidManifest.xml:64:17
-	android:name
 		ADDED from AndroidManifest.xml:63:17
+	android:name
+		ADDED from AndroidManifest.xml:62:17
 activity#com.esgi.groupe1.eloworld.ChangePasswordActivity
-ADDED from AndroidManifest.xml:66:9
+ADDED from AndroidManifest.xml:65:9
 	android:label
-		ADDED from AndroidManifest.xml:68:13
-	android:name
 		ADDED from AndroidManifest.xml:67:13
+	android:name
+		ADDED from AndroidManifest.xml:66:13
 activity#com.esgi.groupe1.eloworld.SettingsActivity
-ADDED from AndroidManifest.xml:70:9
+ADDED from AndroidManifest.xml:69:9
 	android:label
-		ADDED from AndroidManifest.xml:72:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:73:13
-	android:name
 		ADDED from AndroidManifest.xml:71:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:72:13
+	android:name
+		ADDED from AndroidManifest.xml:70:13
 activity#com.esgi.groupe1.eloworld.ForumActivity
-ADDED from AndroidManifest.xml:78:9
+ADDED from AndroidManifest.xml:77:9
 	android:label
-		ADDED from AndroidManifest.xml:80:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:81:13
-	android:name
 		ADDED from AndroidManifest.xml:79:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:80:13
+	android:name
+		ADDED from AndroidManifest.xml:78:13
 activity#com.esgi.groupe1.eloworld.ChangePasswordActivity$ProfilActivity
-ADDED from AndroidManifest.xml:86:9
+ADDED from AndroidManifest.xml:85:9
 	android:label
-		ADDED from AndroidManifest.xml:88:13
-	android:uiOptions
-		ADDED from AndroidManifest.xml:90:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:89:13
-	android:name
 		ADDED from AndroidManifest.xml:87:13
+	android:uiOptions
+		ADDED from AndroidManifest.xml:89:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:88:13
+	android:name
+		ADDED from AndroidManifest.xml:86:13
 activity#com.esgi.groupe1.eloworld.ProfilActivity
-ADDED from AndroidManifest.xml:96:9
+ADDED from AndroidManifest.xml:95:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:100:13
-	android:label
-		ADDED from AndroidManifest.xml:98:13
-	android:parentActivityName
 		ADDED from AndroidManifest.xml:99:13
-	android:name
+	android:label
 		ADDED from AndroidManifest.xml:97:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:98:13
+	android:name
+		ADDED from AndroidManifest.xml:96:13
 activity#com.esgi.groupe1.eloworld.SearchActivity
-ADDED from AndroidManifest.xml:108:9
+ADDED from AndroidManifest.xml:107:9
 	android:label
-		ADDED from AndroidManifest.xml:110:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:111:13
-	android:name
 		ADDED from AndroidManifest.xml:109:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:110:13
+	android:name
+		ADDED from AndroidManifest.xml:108:13
 activity#com.esgi.groupe1.eloworld.TopicsActivity
-ADDED from AndroidManifest.xml:116:9
+ADDED from AndroidManifest.xml:115:9
 	android:label
-		ADDED from AndroidManifest.xml:118:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:119:13
-	android:name
 		ADDED from AndroidManifest.xml:117:13
-activity#com.esgi.groupe1.eloworld.PostActivity
-ADDED from AndroidManifest.xml:124:9
-	android:label
-		ADDED from AndroidManifest.xml:126:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:127:13
+		ADDED from AndroidManifest.xml:118:13
 	android:name
+		ADDED from AndroidManifest.xml:116:13
+activity#com.esgi.groupe1.eloworld.PostActivity
+ADDED from AndroidManifest.xml:123:9
+	android:label
 		ADDED from AndroidManifest.xml:125:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:126:13
+	android:name
+		ADDED from AndroidManifest.xml:124:13
+activity#com.esgi.groupe1.eloworld.FriendActivity
+ADDED from AndroidManifest.xml:131:9
+	android:label
+		ADDED from AndroidManifest.xml:133:13
+	android:name
+		ADDED from AndroidManifest.xml:132:13
 meta-data#com.google.android.gms.version
 ADDED from com.google.android.gms:play-services:6.5.87:21:9
 	android:name

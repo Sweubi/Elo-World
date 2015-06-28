@@ -2,12 +2,15 @@ package com.esgi.groupe1.eloworld.RiotGameAPI;
 
 import android.util.Log;
 
+import com.esgi.groupe1.eloworld.Games;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 /**
@@ -68,8 +71,8 @@ public class APIMethod {
     @param String Server
     @return
      */
-    public static final JSONObject getGames(){
-        String url = "https://euw.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/57733317/recent?api_key=08324d59-9c27-4aff-9942-2a86e04654e0";
+    public static final JSONObject getGames(int idSummoner, String server){
+        String url = "https://"+server+".api.pvp.net/api/lol/"+server+"/v1.3/game/by-summoner/"+idSummoner+"/recent?api_key=08324d59-9c27-4aff-9942-2a86e04654e0";
         JSONObject jsonObject = JSONParser.makeHttpRequestAPI(url);
 
         return jsonObject;
@@ -90,6 +93,45 @@ public class APIMethod {
 
 
         return object;
+    }
+    public static List<Games> SummonerGame(int IdSummoner, String server){
+        APIMethod apiMethod =new APIMethod();
+        JSONObject object = apiMethod.getGames(IdSummoner,server);
+
+        List<Games> mesgames = new ArrayList<Games>();
+        try {
+            JSONArray gamesArray = object.getJSONArray("games");
+            int lenght = gamesArray.length();//10
+            for (int i=0; i<lenght;i++){
+                JSONObject getall = gamesArray.getJSONObject(i);
+                int idchamp = getall.getInt("championId");
+                int idSpell1 = getall.getInt("spell1");
+                int idSpell2 = getall.getInt("spell2");
+                JSONObject stats = getall.getJSONObject("stats");
+                int championsKilled = stats.optInt("championsKilled");
+                int championsAssists = stats.getInt("assists");
+                boolean wingame = stats.getBoolean("win");
+                int numDeaths = stats.optInt("numDeaths");
+                int idItem0 = stats.optInt("item0");
+                int idItem1 = stats.optInt("item1");
+                int idItem2 = stats.optInt("item2");
+                int idItem3 = stats.optInt("item3");
+                int idItem4 = stats.optInt("item4");
+                int idItem5 = stats.optInt("item5");
+                int idItem6 = stats.optInt("item6");
+                JSONObject objectDataChamp = apiMethod.championInfo(idchamp);
+                String champion = objectDataChamp.optString("name");
+                JSONObject object1Spell = apiMethod.summonerSpell(idSpell1);
+                JSONObject object1Spel2 = apiMethod.summonerSpell(idSpell2);
+                String spell1 = object1Spell.getString("key");
+                String spell2 = object1Spel2.getString("key");
+                mesgames.add(new Games(champion, spell1, spell2, championsKilled, championsAssists, numDeaths, wingame,idItem0, idItem1, idItem2,idItem3, idItem4, idItem5,idItem6));
+            }
+        } catch (JSONException e1) {
+            e1.printStackTrace();
+        }
+        return mesgames;
+
     }
 
 

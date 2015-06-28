@@ -7,7 +7,7 @@ public class Games {
     private String champion,spell1,spell2;
     private int kills,assits,deaths, idItem0,idItem1,idItem2,idItem3,idItem4,idItem5,idItem6;
     private boolean resGame; //true for win or false
-    Games(String champion, String spell1, String spell2,int kills,int assits,int deaths,boolean resGame,int idItem0, int idItem1, int idItem2,int idItem3,int idItem4,int idItem5,int idItem6){
+    public Games(String champion, String spell1, String spell2, int kills, int assits, int deaths, boolean resGame, int idItem0, int idItem1, int idItem2, int idItem3, int idItem4, int idItem5, int idItem6){
         this.champion = champion;
         this.spell1 = spell1;
         this.spell2 = spell2;

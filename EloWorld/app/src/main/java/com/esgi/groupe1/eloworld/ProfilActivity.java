@@ -6,10 +6,12 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
@@ -18,6 +20,8 @@ import com.esgi.groupe1.eloworld.RiotGameAPI.APIMethod;
 import com.esgi.groupe1.eloworld.adapter.GameAdapter;
 import com.esgi.groupe1.eloworld.method.BitmapLruCache;
 import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,22 +32,25 @@ import java.util.List;
 
 
 public class ProfilActivity extends Activity  {
-    String url ;
-    SQLiteHandler  db ;
-    NetworkImageView networkImageView;
-    ListView listView;
-    ProgressDialog dialog;
+    private String url ;
+    private SQLiteHandler  db ;
+    private NetworkImageView networkImageView;
+    private ImageView splash;
+    private ListView listView;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+        db = new SQLiteHandler(getApplicationContext());
+        HashMap<String,Object> user =db.getUser();
+        new Historique().execute();
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setIcon(R.drawable.ic_action_person);
-        db = new SQLiteHandler(getApplicationContext());
-        HashMap<String,Object> user =db.getUser();
+
         String pseudo = (String) user.get("pseudo");
         setTitle(pseudo);
         url = "http://avatar.leagueoflegends.com/euw/"+pseudo+".png";
@@ -51,7 +58,7 @@ public class ProfilActivity extends Activity  {
         ImageLoader.ImageCache imageCache = new BitmapLruCache();
         ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(getApplicationContext()), imageCache);
         networkImageView.setImageUrl(url, imageLoader);
-        new Historique().execute();
+
 
     }
 
@@ -100,9 +107,9 @@ public class ProfilActivity extends Activity  {
             String server = (String)user.get("server");
             int IdSummoner = (int)user.get("IdSummoner");
 
-            JSONObject object = apiMethod.getGames();
+            ArrayList array = (ArrayList) apiMethod.SummonerGame(IdSummoner, server);
 
-            List<Games> mesgames = new ArrayList<Games>();
+            /*List<Games> mesgames = new ArrayList<Games>();
             try {
                 JSONArray gamesArray = object.getJSONArray("games");
                 int lenght = gamesArray.length();//10
@@ -133,18 +140,22 @@ public class ProfilActivity extends Activity  {
                 }
             } catch (JSONException e1) {
                 e1.printStackTrace();
-            }
-            return mesgames;
+            }*/
+            return array;
         }
 
         @Override
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
-            //dialog.dismiss();
             List mesgames = (List)o;
-            ListAdapter listAdapter = new GameAdapter(ProfilActivity.this,mesgames);
+            ArrayAdapter adapter = new GameAdapter(ProfilActivity.this,mesgames);
             listView = (ListView) findViewById(R.id.list_matches);
-            listView.setAdapter(listAdapter);
+            listView.setAdapter(adapter);
+            //last champ played
+            Games uneGame = (Games) mesgames.get(0);
+            String lastChamp = uneGame.getChampion();
+            splash = (ImageView) findViewById(R.id.splashArt);
+            Picasso.with(getApplicationContext()).load("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+lastChamp+"_0.jpg").into(splash);
         }
     }
 

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -112,17 +113,11 @@ public class TopicsActivity extends Activity {
             String categorie  = datapassing.getStringExtra("categorie");
             HashMap<String,Object> user = db.getUser();
             String idUser =String.valueOf(user.get("idUser"));
-
-            Log.d("Data", categorie);
-
             List<NameValuePair> parameters = new ArrayList<>();
             parameters.add(new BasicNameValuePair("ForumCategory",categorie));
             parameters.add(new BasicNameValuePair("Name",topicName));
             parameters.add(new BasicNameValuePair("User_idUser", idUser));
-            Log.d("Data", String.valueOf(idUser));
             JSONObject object = new JSONParser().makeHttpRequest(url, parameters);
-
-
             return null;
 
         }
@@ -140,23 +135,24 @@ public class TopicsActivity extends Activity {
             List<NameValuePair> parameters = new ArrayList<>();
             parameters.add(new BasicNameValuePair("idForumCategory", idcategory));
             JSONObject objectTopic = new JSONParser().makeHttpRequest(url_getTopic, parameters);
-            Log.d("name",String.valueOf(objectTopic));
+            Log.d("Le Json des topics",String.valueOf(objectTopic));
            List<Topic> topics = new ArrayList<>();
             try {
                 JSONArray array = objectTopic.getJSONArray("topics");
+                Log.d("Arr", String.valueOf(array));
                 for (int i=0;i<array.length();i++){
                     JSONObject object = array.getJSONObject(i);
+                    String idTopic =String.valueOf(object.optInt("idTopic"));
+                    Log.d("idTopic", idTopic);
                     String libelle = object.optString("Name");
                     String date = object.optString("Date");
                     String auteur = object.optString("User_idUser");
                     String test = new AppMethod().PseudoAuthor(auteur);
-                    Log.d("Mdmdmdmd",test);
-
-                    Topic topicObject = new Topic(libelle,test,date);
+                    Topic topicObject = new Topic(libelle,test,date,idTopic);
                     topics.add(topicObject);
 
                 }
-                Log.d("On test",String.valueOf(topics));
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -170,6 +166,17 @@ public class TopicsActivity extends Activity {
             ListAdapter adapter = new TopicAdapter(TopicsActivity.this,item);
             maListView = (ListView) findViewById(R.id.allTopics);
             maListView.setAdapter(adapter);
+            maListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                   Topic topic = (Topic) parent.getItemAtPosition(position);
+                    String idOfTopic = String.valueOf(topic.getIdtopic());
+                    Log.d("Objet topic Juste here", idOfTopic);
+                    Intent intent = new Intent(getApplicationContext(),PostActivity.class);
+                    intent.putExtra("idTopic",idOfTopic);
+                    startActivity(intent);
+                }
+            });
 
         }
     }

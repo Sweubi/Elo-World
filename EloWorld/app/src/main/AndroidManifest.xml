@@ -55,8 +55,7 @@
         </activity>
         <activity
             android:name=".UserActivity"
-            android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow" >
+            android:label="@string/app_name" >
 
             <!-- android:uiOptions="splitActionBarWhenNarrow" -->
             <meta-data
@@ -128,6 +127,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.esgi.groupe1.eloworld.TopicsActivity" />
+        </activity>
+        <activity
+            android:name=".FriendActivity"
+            android:label="@string/title_activity_friend" >
         </activity>
     </application>
 

@@ -43,5 +43,12 @@
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-758cad6909db5b3d18796c3e82fc6e8f94da65a7.jar" />
     </item>
+    <item
+        jar="C:\Users\manouana\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-eb3280fdc8e9f6f778addcc772f46c69fa54f51e.jar" />
+    </item>
 
 </items>

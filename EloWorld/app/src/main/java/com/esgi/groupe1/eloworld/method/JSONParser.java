@@ -59,7 +59,7 @@ public class JSONParser {
             }
             is.close();
             json = sb.toString();
-            Log.d("Json",json);
+            Log.d("Json TEST",json);
         } catch (Exception e) {
             Log.d("Error","Problème");
             Log.e("Buffer Error", "Error converting result " + e.toString());

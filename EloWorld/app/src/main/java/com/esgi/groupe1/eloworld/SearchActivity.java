@@ -110,6 +110,10 @@ public class SearchActivity extends Activity {
                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                            String name = String.valueOf(parent.getItemAtPosition(position));
                            Toast.makeText(SearchActivity.this,name,Toast.LENGTH_SHORT).show();
+                           Intent intent = new Intent(getApplicationContext(),FriendActivity.class);
+                           intent.putExtra("Summoner",name);
+                           startActivity(intent);
+                           finish();
                        }
                    });
 

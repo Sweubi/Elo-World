@@ -2,6 +2,12 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string-array name="menu_string">
+        <item>Mon Profil</item>
+        <item>Options</item>
+        <item>Forum</item>
+        <item>Déconnexion</item>
+    </string-array>
     <string-array name="region">
         <item>Séléctionner une Région</item>
         <item>Brazil</item>
@@ -299,6 +305,8 @@
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="delete">Supprimer votre compte</string>
+    <string name="drawer_close">Fermer</string>
+    <string name="drawer_open">Ouvrir</string>
     <string name="forgot_password">Mot de passe perdu ?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
@@ -323,6 +331,7 @@
     <string name="title_activity_change_password">Nouveau mot de passe</string>
     <string name="title_activity_dialog_email">Saisissez votre Email</string>
     <string name="title_activity_forum">Forum</string>
+    <string name="title_activity_friend">Friend</string>
     <string name="title_activity_login">Connectez-vous</string>
     <string name="title_activity_messenger">Messagerie</string>
     <string name="title_activity_post">vos postes</string>

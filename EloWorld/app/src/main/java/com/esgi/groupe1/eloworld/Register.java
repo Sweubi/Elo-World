@@ -42,7 +42,7 @@ public class Register extends Activity  implements ViewTreeObserver.OnScrollChan
     float mActionBarHeight;
     private static final String TAG_SUCCESS = "success";
     public static final String Url_Register ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/inscription/inscription.php";
-    /*public static final String Url_Register ="http://192.168.31.1/eloworldweb/Code/WebService/inscription/inscription.php";*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

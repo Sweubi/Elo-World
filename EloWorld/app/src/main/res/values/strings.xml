@@ -38,6 +38,12 @@
         <item>Korea</item>
         <item>Turkey</item>
     </string-array>
+    <string-array name="menu_string">
+        <item>Mon Profil</item>
+        <item>Options</item>
+        <item>Forum</item>
+        <item>Déconnexion</item>
+    </string-array>
 
     <string name="title_activity_dialog_email">Saisissez votre Email</string>
     <string name="title_activity_change_password">Nouveau mot de passe</string>
@@ -62,5 +68,9 @@
     <string name="trefrech">rafraichir</string>
     <string name="logout">Déconnexion</string>
     <string name="title_activity_post">vos postes</string>
+
+    <string name="drawer_open">Ouvrir</string>
+    <string name="drawer_close">Fermer</string>
+    <string name="title_activity_friend">Friend</string>
 
 </resources>
