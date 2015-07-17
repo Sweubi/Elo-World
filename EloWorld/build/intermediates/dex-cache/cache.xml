@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\manouana\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\manouana\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c3a0802891a5d086ef1efebe56110156405a5dfe.jar" />
-    </item>
-    <item
-        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\volley\volley.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
-        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\volley-4cef4467b8c3d27c086c4bd5feba1eb62a6556c7.jar" />
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\gson-2.3.1-cbf523aae8a578a2673ab4540eb7fb5f6860de0b.jar" />
     </item>
     <item
         jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
@@ -23,11 +16,18 @@
         <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-8fc6d2705816ffebc63d74bfc11c1a597d07c8fa.jar" />
     </item>
     <item
-        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="C:\Users\manouana\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-ab928dedc0e7e16c7881b09d87f6c31aa5c8b481.jar" />
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\retrofit-1.9.0-d6a56636a796cfe93d2ef82c6a59f52b3102dfda.jar" />
+    </item>
+    <item
+        jar="C:\Users\manouana\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c3a0802891a5d086ef1efebe56110156405a5dfe.jar" />
     </item>
     <item
         jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
@@ -35,6 +35,13 @@
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-94f86638c9e134ffe980ef7457a700dec38ca455.jar" />
+    </item>
+    <item
+        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-ab928dedc0e7e16c7881b09d87f6c31aa5c8b481.jar" />
     </item>
     <item
         jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"

@@ -8,12 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.android.volley.toolbox.Volley;
 import com.esgi.groupe1.eloworld.R;
-import com.esgi.groupe1.eloworld.Topic;
-import com.esgi.groupe1.eloworld.method.BitmapLruCache;
+import com.esgi.groupe1.eloworld.appObject.Topic;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -38,9 +34,6 @@ public class TopicAdapterCustom extends ArrayAdapter{
         networkImageView = (ImageView) convertView.findViewById(R.id.iconSum);
         String url = "http://avatar.leagueoflegends.com/euw/"+String.valueOf(unTopic.getAuteur())+".png";
         Picasso.with(getContext()).load(url).into(networkImageView);
-        //ImageLoader.ImageCache imageCache = new BitmapLruCache();
-        //ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(getContext()), imageCache);
-        //networkImageView.setImageUrl(url, imageLoader);
         textSubject = (TextView) convertView.findViewById(R.id.sujet);
         textAuteur = (TextView) convertView.findViewById(R.id.userName);
         textDate = (TextView) convertView.findViewById(R.id.date);

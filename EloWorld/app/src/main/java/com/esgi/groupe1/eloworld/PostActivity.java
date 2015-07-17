@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.esgi.groupe1.eloworld.adapter.PostAdapter;
+import com.esgi.groupe1.eloworld.appObject.Post;
 import com.esgi.groupe1.eloworld.method.AppMethod;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;

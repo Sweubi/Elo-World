@@ -48,7 +48,7 @@ public class JSONParser {
 
 
         } catch (Exception e) {
-            Log.e("log_tag", "Error in http connection (you're so bad dude :D )" + e.toString());
+            Log.e("log_tag", "Error in http connection" + e.toString());
         } try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     is, "iso-8859-1"), 8);

@@ -8,7 +8,7 @@
         android:showAsAction="always"
         tools:ignore="AppCompatResource"
         />
-    <!--<item android:id="@+id/action_logout"
+    <item android:id="@+id/action_logout"
         android:title="Quitter"
         android:icon="@drawable/ic_action_disconnect"
         android:showAsAction="always"
@@ -39,7 +39,7 @@
         android:title="@string/title_activity_forum"
         android:showAsAction="always"
         tools:ignore="AppCompatResource"/>
-    />-->
+    />
 
 
 </menu>

@@ -2,11 +2,14 @@ package com.esgi.groupe1.eloworld;
 
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -35,20 +38,17 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Login extends FragmentActivity  {
+public class Login extends Activity {
 
-    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
     APIMethod apiMethod = new APIMethod();
-    TextView newaccount;
+
     EditText inputemail,inputpassword;
     ProgressDialog dialog;
-    RelativeLayout reset;
     String email;
     String password ;
     Button btLogin;
     SQLiteHandler db;
 
-    /*public static final String URL_LOGIN ="http://192.168.31.1/eloworldweb/code/WebService/connexion/connexion.php";*/
     public static final String URL_LOGIN ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/connexion/connexion.php";
     private static final String TAG_SUCCESS = "success";
     private SessionManager session;
@@ -230,9 +230,14 @@ public class Login extends FragmentActivity  {
                 Toast.makeText(getApplication(), "Welcome", Toast.LENGTH_LONG).show();
             }
             else {
-                Toast.makeText(getApplication(), "NON", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplication(), "Mot de passe ou email incorrect", Toast.LENGTH_LONG).show();
             }
         }
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 

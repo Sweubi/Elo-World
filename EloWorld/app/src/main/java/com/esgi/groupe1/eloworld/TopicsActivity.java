@@ -2,11 +2,8 @@ package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,14 +14,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.esgi.groupe1.eloworld.adapter.TopicAdapter;
+import com.esgi.groupe1.eloworld.appObject.Topic;
 import com.esgi.groupe1.eloworld.method.AppMethod;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
-import com.google.android.gms.internal.ca;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -33,7 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 

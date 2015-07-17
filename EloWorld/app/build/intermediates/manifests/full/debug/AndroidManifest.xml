@@ -132,6 +132,18 @@
             android:name="com.esgi.groupe1.eloworld.FriendActivity"
             android:label="@string/title_activity_friend" >
         </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.ListConversationActivity"
+            android:label="@string/title_activity_list_conversation" >
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.MessengerActivity"
+            android:label="@string/title_activity_messenger" >
+        </activity>
+        <activity
+            android:name="com.esgi.groupe1.eloworld.ListAllFolowActivity"
+            android:label="@string/title_activity_list_all_folow" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

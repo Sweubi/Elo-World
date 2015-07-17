@@ -3,22 +3,22 @@ package com.esgi.groupe1.eloworld;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.esgi.groupe1.eloworld.RiotGameAPI.APIMethod;
 import com.esgi.groupe1.eloworld.adapter.GameAdapter;
+import com.esgi.groupe1.eloworld.appObject.Games;
 import com.esgi.groupe1.eloworld.method.JSONParser;
-import com.google.android.gms.internal.pa;
+import com.esgi.groupe1.eloworld.sqlLite.SQLiteHandler;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.NameValuePair;
@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -36,7 +37,12 @@ public class FriendActivity extends Activity {
     private ImageView squareImageView;
     private String pseudo = null;
     private String url = "http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/divers/getUnUser.php";
+    private String urladd = "http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/follower/addFollower.php";
     private ListView listView;
+    private Button buttonFollow;
+    private SQLiteHandler db;
+    private HashMap<String,Object> user;
+    private Integer myid = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +53,18 @@ public class FriendActivity extends Activity {
         pseudo =monIntent.getStringExtra("Summoner");
         textView.setText(pseudo);
         Picasso.with(getApplicationContext()).load("http://avatar.leagueoflegends.com/euw/"+monIntent.getStringExtra("Summoner")+".png").into(squareImageView);
+        db = new SQLiteHandler(getApplicationContext());
+        user =db.getUser();
+        myid = (Integer) user.get("idUser");
+        buttonFollow =(Button) findViewById(R.id.btfollow);
+        buttonFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Follow().execute();
+            }
+        });
         new HistoriqueFriend().execute();
+
     }
 
     @Override
@@ -93,7 +110,7 @@ public class FriendActivity extends Activity {
                     int idSpell2 = getall.getInt("spell2");
                     JSONObject stats = getall.getJSONObject("stats");
                     int championsKilled = stats.optInt("championsKilled");
-                    int championsAssists = stats.getInt("assists");
+                    int championsAssists = stats.optInt("assists");
                     boolean wingame = stats.getBoolean("win");
                     int numDeaths = stats.optInt("numDeaths");
                     int idItem0 = stats.optInt("item0");
@@ -125,6 +142,39 @@ public class FriendActivity extends Activity {
             listView = (ListView) findViewById(R.id.gamesFriend);
             listView.setAdapter(adapter);
             Log.d("STP", String.valueOf(listgame));
+        }
+    }
+    class Follow extends AsyncTask{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+        @Override
+        protected Object doInBackground(Object[] params) {
+            List<NameValuePair> parametres = new ArrayList();
+            parametres.add(new BasicNameValuePair("pseudo", pseudo));
+            JSONObject jsonObject= JSONParser.makeHttpRequest(url,parametres);
+            JSONObject object = null;
+            try {
+                int idUserToFollow  = jsonObject.getInt("idUser");
+                List<NameValuePair> nameValuePairsParameters = new ArrayList<>();
+                Log.d("idUser1",String.valueOf(myid));
+                Log.d("idUser2",String.valueOf(idUserToFollow));
+                nameValuePairsParameters.add(new BasicNameValuePair("idUser1", String.valueOf(myid)));
+                nameValuePairsParameters.add(new BasicNameValuePair("idUser2",String.valueOf(idUserToFollow)));
+                object = JSONParser.makeHttpRequest(urladd,nameValuePairsParameters);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.d("LogO",String.valueOf(object));
+            return object;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
         }
     }
 }

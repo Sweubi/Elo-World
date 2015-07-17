@@ -95,7 +95,6 @@ public class Register extends Activity  implements ViewTreeObserver.OnScrollChan
                     boolean checkequalityPassword = new AppMethod().checkequalityPassword(password, confirmPwd);
                     if(checkequalityPassword){
                         new Newuser().execute();
-
                     }
                     else{
                         Toast.makeText(getApplication(),"Veuillez saisir des mots de passes indentiques ",Toast.LENGTH_SHORT).show();
@@ -185,7 +184,8 @@ public class Register extends Activity  implements ViewTreeObserver.OnScrollChan
         @Override
         protected void onPostExecute(Object o) {
             dialog.dismiss();
-            if (o==1) {
+            int i = (int)o;
+            if (i==1) {
                 Toast.makeText(getApplication(), "Vous pouvez désormais vous connecter", Toast.LENGTH_LONG).show();
             }
             else {

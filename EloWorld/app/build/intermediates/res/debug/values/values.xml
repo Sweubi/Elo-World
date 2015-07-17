@@ -46,6 +46,8 @@
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="base_background">#263238</color>
+    <color name="blue1">#1565c0</color>
+    <color name="blue2">#0d47a1</color>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
@@ -77,6 +79,11 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
+    <eat-comment/>
+    <color name="green_200">#c5e1a5</color>
+    <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
@@ -100,6 +107,7 @@
     <eat-comment/>
     <color name="red">#d50000</color>
     <color name="redV2">#b71c1c</color>
+    <color name="red_100">#ffcdd2</color>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#40ffffff</color>
@@ -112,6 +120,7 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
     <eat-comment/>
+    <color name="teal_500">#009688</color>
     <color name="text_color_blue">#006064</color>
     <color name="text_color_teal">#004d40</color>
     <color name="text_color_white">#fff</color>
@@ -307,6 +316,7 @@
     <string name="delete">Supprimer votre compte</string>
     <string name="drawer_close">Fermer</string>
     <string name="drawer_open">Ouvrir</string>
+    <string name="follow">Suivre</string>
     <string name="forgot_password">Mot de passe perdu ?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
@@ -319,6 +329,7 @@
     <string name="kills">kills :</string>
     <string name="logo">logo</string>
     <string name="logout">Déconnexion</string>
+    <string name="msg">Nouveau message</string>
     <string name="new_compte">Créer un compte</string>
     <string name="register">Inscription</string>
     <string name="send">Envoyer</string>
@@ -332,6 +343,8 @@
     <string name="title_activity_dialog_email">Saisissez votre Email</string>
     <string name="title_activity_forum">Forum</string>
     <string name="title_activity_friend">Friend</string>
+    <string name="title_activity_list_all_folow">Abonnements</string>
+    <string name="title_activity_list_conversation">Notifications</string>
     <string name="title_activity_login">Connectez-vous</string>
     <string name="title_activity_messenger">Messagerie</string>
     <string name="title_activity_post">vos postes</string>

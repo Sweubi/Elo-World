@@ -8,12 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.android.volley.toolbox.Volley;
-import com.esgi.groupe1.eloworld.Games;
+
+import com.esgi.groupe1.eloworld.appObject.Games;
 import com.esgi.groupe1.eloworld.R;
-import com.esgi.groupe1.eloworld.method.BitmapLruCache;
 import com.squareup.picasso.Picasso;
 
 
@@ -29,9 +26,6 @@ public class GameAdapter extends ArrayAdapter {
     TextView kills,deaths,assists;
     ImageView square,squareSpell1,squareSpell2,i0,i1,i2,i3,i4,i5;
 
-
-
-
     public GameAdapter(Context context, List<Games> games) {
         super(context, R.layout.game_list,games);
         this.games = games;
@@ -40,9 +34,14 @@ public class GameAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        convertView = inflater.inflate(R.layout.game_list,parent,false);
         Games mesgames = games.get(position);
+        boolean bwin = mesgames.isResGame();
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        if (bwin == true){
+            convertView = inflater.inflate(R.layout.game_list,parent,false);
+        }else {
+            convertView = inflater.inflate(R.layout.game_list_lose,parent,false);
+        }
         String champion =mesgames.getChampion();
         String spell1 = mesgames.getSpell1();
         String spell2 = mesgames.getSpell2();

@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.esgi.groupe1.eloworld.Post;
+import com.esgi.groupe1.eloworld.appObject.Post;
 import com.esgi.groupe1.eloworld.R;
 import com.squareup.picasso.Picasso;
 
@@ -36,7 +36,7 @@ public class PostAdapter extends ArrayAdapter {
         summoner.setText(String.valueOf(unPost.getUserName()));
         commentaire.setText(unPost.getTextPost());
         ImageView imageView =(ImageView) convertView.findViewById(R.id.squareSum);
-        Picasso.with(getContext()).load("http://avatar.leagueoflegends.com/euw/natsudate.png").into(imageView);
+        Picasso.with(getContext()).load("http://avatar.leagueoflegends.com/euw/" +String.valueOf(unPost.getUserName())+ ".png").into(imageView);
 
 
         return convertView;

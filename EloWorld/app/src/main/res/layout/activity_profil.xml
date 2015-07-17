@@ -1,32 +1,39 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.esgi.groupe1.eloworld.ProfilActivity">
 
     <LinearLayout
-        android:layout_gravity="top"
-        android:id="@+id/bg"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/teal_500">
         <ImageView
-            android:id="@+id/splashArt"
-            android:layout_width="match_parent"
-            android:layout_height="90dp" />
-
-</LinearLayout>
-    <com.android.volley.toolbox.NetworkImageView
-        android:layout_margin="10dp"
-        android:id="@+id/networkImageView"
-        android:scaleType="centerCrop"
-        android:layout_width="70dp"
-        android:layout_height="70dp"/>
-        <ListView
-            android:layout_below="@+id/bg"
+            android:layout_gravity="center"
             android:layout_margin="10dp"
+            android:id="@+id/networkImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+        <TextView
+            android:id="@+id/mysummname"
+            android:layout_gravity="center"
+            android:textColor="@color/text_color_white"
+            android:text="hahahahah"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+        <ListView
+            android:dividerHeight="10.0sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/list_matches"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@null" />
-</RelativeLayout>
+</LinearLayout>

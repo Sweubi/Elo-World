@@ -1,8 +1,6 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -13,6 +11,8 @@ ADDED from AndroidManifest.xml:2:1
 		ADDED from AndroidManifest.xml:4:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 uses-sdk
 ADDED from AndroidManifest.xml:7:5
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5
@@ -101,10 +101,10 @@ ADDED from AndroidManifest.xml:48:9
 		ADDED from AndroidManifest.xml:49:13
 meta-data#android.support.PARENT_ACTIVITY
 ADDED from AndroidManifest.xml:52:13
-	android:name
-		ADDED from AndroidManifest.xml:53:17
 	android:value
 		ADDED from AndroidManifest.xml:54:17
+	android:name
+		ADDED from AndroidManifest.xml:53:17
 activity#com.esgi.groupe1.eloworld.UserActivity
 ADDED from AndroidManifest.xml:56:9
 	android:label
@@ -143,10 +143,10 @@ activity#com.esgi.groupe1.eloworld.ChangePasswordActivity$ProfilActivity
 ADDED from AndroidManifest.xml:85:9
 	android:label
 		ADDED from AndroidManifest.xml:87:13
-	android:uiOptions
-		ADDED from AndroidManifest.xml:89:13
 	android:parentActivityName
 		ADDED from AndroidManifest.xml:88:13
+	android:uiOptions
+		ADDED from AndroidManifest.xml:89:13
 	android:name
 		ADDED from AndroidManifest.xml:86:13
 activity#com.esgi.groupe1.eloworld.ProfilActivity
@@ -189,9 +189,27 @@ ADDED from AndroidManifest.xml:131:9
 		ADDED from AndroidManifest.xml:133:13
 	android:name
 		ADDED from AndroidManifest.xml:132:13
+activity#com.esgi.groupe1.eloworld.ListConversationActivity
+ADDED from AndroidManifest.xml:135:9
+	android:label
+		ADDED from AndroidManifest.xml:137:13
+	android:name
+		ADDED from AndroidManifest.xml:136:13
+activity#com.esgi.groupe1.eloworld.MessengerActivity
+ADDED from AndroidManifest.xml:139:9
+	android:label
+		ADDED from AndroidManifest.xml:141:13
+	android:name
+		ADDED from AndroidManifest.xml:140:13
+activity#com.esgi.groupe1.eloworld.ListAllFolowActivity
+ADDED from AndroidManifest.xml:143:9
+	android:label
+		ADDED from AndroidManifest.xml:145:13
+	android:name
+		ADDED from AndroidManifest.xml:144:13
 meta-data#com.google.android.gms.version
 ADDED from com.google.android.gms:play-services:6.5.87:21:9
-	android:name
-		ADDED from com.google.android.gms:play-services:6.5.87:22:13
 	android:value
 		ADDED from com.google.android.gms:play-services:6.5.87:23:13
+	android:name
+		ADDED from com.google.android.gms:play-services:6.5.87:22:13

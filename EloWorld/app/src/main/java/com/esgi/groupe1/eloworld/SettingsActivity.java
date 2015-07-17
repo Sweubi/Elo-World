@@ -1,6 +1,9 @@
 package com.esgi.groupe1.eloworld;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.esgi.groupe1.eloworld.method.JSONParser;
@@ -29,12 +31,13 @@ import java.util.List;
 
 
 public class SettingsActivity extends Activity {
-    SessionManager session;
-    ListView listView;
-    SQLiteHandler db;
-    HashMap<String,Object> user;
-    String url_delete ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/divers/delete.php";
-    Button buttonD;
+    private SessionManager session;
+    private ListView listView;
+    private SQLiteHandler db;
+    private HashMap<String,Object> user;
+    private String url_delete ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/divers/delete.php";
+    private Button buttonD;
+    private final Context context=this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +65,6 @@ public class SettingsActivity extends Activity {
                 String Maposition = String.valueOf(parent.getItemAtPosition(position));
                 Log.d("id",String.valueOf(id));
                 Log.d("value",String.valueOf(Maposition));
-                /*if (Maposition.equals(String.valueOf(parent.getItemAtPosition(position)))){
-                    logout();
-                }else {
-                    Log.d("Ma position","Non");
-                }*/
                 switch ((int) id){
                     case 0:
                         Log.d("test","0");
@@ -91,7 +89,22 @@ public class SettingsActivity extends Activity {
         buttonD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DeleteUser().execute();
+
+                new  AlertDialog.Builder(context)
+                        .setTitle("Remarque")
+                        .setMessage("Veux-tu vraiment supprimer ton compte?")
+                        .setPositiveButton("Oui, supprimer mon compte", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                new DeleteUser().execute();
+                            }
+                        }).setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
+
             }
         });
 

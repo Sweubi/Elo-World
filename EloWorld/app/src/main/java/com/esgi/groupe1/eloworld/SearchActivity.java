@@ -82,9 +82,7 @@ public class SearchActivity extends Activity {
         @Override
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
-
             JSONObject objet =(JSONObject) o;
-
             try {
                 int success = objet.getInt("success");
                 if (success ==0){
@@ -95,10 +93,12 @@ public class SearchActivity extends Activity {
 
                     JSONArray array = objet.getJSONArray("user");
                     ArrayList<String> strings= new ArrayList<String>();
+                    ArrayList<Integer> id = new ArrayList<Integer>();
                     for (int i =0;i<array.length();i++ ){
                         JSONObject data = array.getJSONObject(i);
                         String pseudo  = data.getString("pseudo");
-
+                        int idUser = data.optInt("idUser");
+                        id.add(idUser);
                         strings.add(pseudo);
                     }
 

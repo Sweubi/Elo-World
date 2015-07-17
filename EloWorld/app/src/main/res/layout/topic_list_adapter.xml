@@ -1,47 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/padding_20"
-    android:padding="20dp">
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:padding="15dp"
+   >
    <LinearLayout
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
        <ImageView
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:src="@drawable/ic_action_edit"/>
+           android:id="@+id/iconSum"
+           android:background="@drawable/bt_follow"
+           android:padding="2dp"
+           android:layout_width="50dp"
+           android:layout_height="50dp" />
        <TextView
-           android:id="@+id/sujet"
+           android:layout_marginLeft="15dp"
            android:textSize="20dp"
            android:textStyle="bold"
-           android:textColor="@color/base_background"
            android:layout_gravity="center"
-           android:layout_width="match_parent"
+           android:id="@+id/userName"
+           android:layout_width="0dp"
+           android:layout_weight="1"
            android:layout_height="wrap_content" />
    </LinearLayout>
-
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_action_person_green"/>
         <TextView
+            android:id="@+id/sujet"
+            android:textStyle="bold"
+            android:textColor="@color/base_background"
             android:layout_gravity="center"
-            android:id="@+id/userName"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_action_date"/>
         <TextView
+            android:drawableLeft="@drawable/ic_action_date"
             android:layout_gravity="center"
             android:id="@+id/date"
             android:layout_width="0dp"

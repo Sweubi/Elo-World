@@ -16,9 +16,5 @@
         android:icon="@drawable/ic_action_chat"
         android:showAsAction="always"/>
 
-    <item android:id="@+id/action_logout"
-        android:title="Quitter"
-        android:icon="@drawable/ic_action_disconnect"
-        android:showAsAction="always"
-        />
+
 </menu>
