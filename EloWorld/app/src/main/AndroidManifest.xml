@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Layout.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/SansActionTheme" >
             <intent-filter>
@@ -35,26 +35,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Layout.Login"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".Layout.MainActivity" >
 
             <!--
                 <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.MainActivity" />
+                android:value="com.esgi.groupe1.eloworld.Layout.MainActivity" />
             -->
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".Layout.Register"
             android:label="@string/title_activity_register"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".Layout.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.MainActivity" />
+                android:value=".Layout.MainActivity" />
         </activity>
         <activity
-            android:name=".UserActivity"
+            android:name=".Layout.UserActivity"
             android:label="@string/app_name" >
 
             <!-- android:uiOptions="splitActionBarWhenNarrow" -->
@@ -63,85 +63,85 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".Layout.ChangePasswordActivity"
             android:label="@string/title_activity_change_password" >
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Layout.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".UserActivity" >
+            android:parentActivityName=".Layout.UserActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+                android:value=".Layout.UserActivity" />
         </activity>
         <activity
-            android:name=".ForumActivity"
+            android:name=".Layout.ForumActivity"
             android:label="@string/title_activity_forum"
-            android:parentActivityName=".UserActivity" >
+            android:parentActivityName=".Layout.UserActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+                android:value=".Layout.UserActivity" />
         </activity>
         <activity
-            android:name=".ChangePasswordActivity$ProfilActivity"
+            android:name=".Layout.ChangePasswordActivity$ProfilActivity"
             android:label="@string/title_activity_profil"
-            android:parentActivityName=".UserActivity"
+            android:parentActivityName=".Layout.UserActivity"
             android:uiOptions="splitActionBarWhenNarrow" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+                android:value=".Layout.UserActivity" />
         </activity>
         <!-- android:uiOptions="splitActionBarWhenNarrow" -->
         <activity
-            android:name=".ProfilActivity"
+            android:name=".Layout.ProfilActivity"
             android:label="@string/title_activity_profil"
-            android:parentActivityName=".UserActivity"
+            android:parentActivityName=".Layout.UserActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+                android:value=".Layout.UserActivity" />
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name=".Layout.SearchActivity"
             android:label="@string/title_activity_search"
-            android:parentActivityName=".UserActivity" >
+            android:parentActivityName=".Layout.UserActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.UserActivity" />
+                android:value=".Layout.UserActivity" />
         </activity>
         <activity
-            android:name=".TopicsActivity"
+            android:name=".Layout.TopicsActivity"
             android:label="@string/title_activity_topics"
-            android:parentActivityName=".ForumActivity" >
+            android:parentActivityName=".Layout.ForumActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.ForumActivity" />
+                android:value=".Layout.ForumActivity" />
         </activity>
         <activity
-            android:name=".PostActivity"
+            android:name=".Layout.PostActivity"
             android:label="@string/title_activity_post"
-            android:parentActivityName=".TopicsActivity" >
+            android:parentActivityName=".Layout.TopicsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.esgi.groupe1.eloworld.TopicsActivity" />
+                android:value=".Layout.TopicsActivity" />
         </activity>
         <activity
-            android:name=".FriendActivity"
+            android:name=".Layout.FriendActivity"
             android:label="@string/title_activity_friend" >
         </activity>
         <activity
-            android:name=".ListConversationActivity"
+            android:name=".Layout.ListConversationActivity"
             android:label="@string/title_activity_list_conversation" >
         </activity>
         <activity
-            android:name=".MessengerActivity"
+            android:name=".Layout.MessengerActivity"
             android:label="@string/title_activity_messenger" >
         </activity>
         <activity
-            android:name=".ListAllFolowActivity"
+            android:name=".Layout.ListAllFolowActivity"
             android:label="@string/title_activity_list_all_folow" >
         </activity>
     </application>

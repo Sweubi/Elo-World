@@ -2,7 +2,7 @@ package com.esgi.groupe1.eloworld.RiotGameAPI;
 
 import android.util.Log;
 
-import com.esgi.groupe1.eloworld.appObject.Games;
+import com.esgi.groupe1.eloworld.Objects.Games;
 import com.esgi.groupe1.eloworld.method.JSONParser;
 
 import org.json.JSONArray;

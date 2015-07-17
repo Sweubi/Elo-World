@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/conversation"
-    tools:context="com.esgi.groupe1.eloworld.ListConversationActivity"/>
+    tools:context="com.esgi.groupe1.eloworld.Layout.ListConversationActivity"/>
 
 
 

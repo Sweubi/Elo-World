@@ -9,11 +9,39 @@
         <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\gson-2.3.1-cbf523aae8a578a2673ab4540eb7fb5f6860de0b.jar" />
     </item>
     <item
+        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-ab928dedc0e7e16c7881b09d87f6c31aa5c8b481.jar" />
+    </item>
+    <item
+        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-758cad6909db5b3d18796c3e82fc6e8f94da65a7.jar" />
+    </item>
+    <item
+        jar="C:\Users\manouana\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-71b8922fe4d66af7d856d044f1e0c6ecae6b93a7.jar" />
+    </item>
+    <item
         jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
         <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-8fc6d2705816ffebc63d74bfc11c1a597d07c8fa.jar" />
+    </item>
+    <item
+        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\libs\Parse-1.9.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
+        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\Parse-1.9.4-d8f227072c0c734b8a60b87831ba88aae1c43945.jar" />
     </item>
     <item
         jar="C:\Users\manouana\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
@@ -35,20 +63,6 @@
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-94f86638c9e134ffe980ef7457a700dec38ca455.jar" />
-    </item>
-    <item
-        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-ab928dedc0e7e16c7881b09d87f6c31aa5c8b481.jar" />
-    </item>
-    <item
-        jar="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\manouana\Documents\AndroidStudioProjects\EloWorld\app\build\intermediates\pre-dexed\debug\classes-758cad6909db5b3d18796c3e82fc6e8f94da65a7.jar" />
     </item>
     <item
         jar="C:\Users\manouana\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"

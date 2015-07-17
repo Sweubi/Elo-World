@@ -65,7 +65,7 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 		ADDED from AndroidManifest.xml:24:9
 	android:theme
 		ADDED from AndroidManifest.xml:26:9
-activity#com.esgi.groupe1.eloworld.MainActivity
+activity#com.esgi.groupe1.eloworld.Layout.MainActivity
 ADDED from AndroidManifest.xml:27:9
 	android:label
 		ADDED from AndroidManifest.xml:29:13
@@ -83,7 +83,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:34:17
 	android:name
 		ADDED from AndroidManifest.xml:34:27
-activity#com.esgi.groupe1.eloworld.Login
+activity#com.esgi.groupe1.eloworld.Layout.Login
 ADDED from AndroidManifest.xml:37:9
 	android:label
 		ADDED from AndroidManifest.xml:39:13
@@ -91,7 +91,7 @@ ADDED from AndroidManifest.xml:37:9
 		ADDED from AndroidManifest.xml:40:13
 	android:name
 		ADDED from AndroidManifest.xml:38:13
-activity#com.esgi.groupe1.eloworld.Register
+activity#com.esgi.groupe1.eloworld.Layout.Register
 ADDED from AndroidManifest.xml:48:9
 	android:label
 		ADDED from AndroidManifest.xml:50:13
@@ -105,7 +105,7 @@ ADDED from AndroidManifest.xml:52:13
 		ADDED from AndroidManifest.xml:54:17
 	android:name
 		ADDED from AndroidManifest.xml:53:17
-activity#com.esgi.groupe1.eloworld.UserActivity
+activity#com.esgi.groupe1.eloworld.Layout.UserActivity
 ADDED from AndroidManifest.xml:56:9
 	android:label
 		ADDED from AndroidManifest.xml:58:13
@@ -117,13 +117,13 @@ ADDED from AndroidManifest.xml:61:13
 		ADDED from AndroidManifest.xml:63:17
 	android:name
 		ADDED from AndroidManifest.xml:62:17
-activity#com.esgi.groupe1.eloworld.ChangePasswordActivity
+activity#com.esgi.groupe1.eloworld.Layout.ChangePasswordActivity
 ADDED from AndroidManifest.xml:65:9
 	android:label
 		ADDED from AndroidManifest.xml:67:13
 	android:name
 		ADDED from AndroidManifest.xml:66:13
-activity#com.esgi.groupe1.eloworld.SettingsActivity
+activity#com.esgi.groupe1.eloworld.Layout.SettingsActivity
 ADDED from AndroidManifest.xml:69:9
 	android:label
 		ADDED from AndroidManifest.xml:71:13
@@ -131,7 +131,7 @@ ADDED from AndroidManifest.xml:69:9
 		ADDED from AndroidManifest.xml:72:13
 	android:name
 		ADDED from AndroidManifest.xml:70:13
-activity#com.esgi.groupe1.eloworld.ForumActivity
+activity#com.esgi.groupe1.eloworld.Layout.ForumActivity
 ADDED from AndroidManifest.xml:77:9
 	android:label
 		ADDED from AndroidManifest.xml:79:13
@@ -139,7 +139,7 @@ ADDED from AndroidManifest.xml:77:9
 		ADDED from AndroidManifest.xml:80:13
 	android:name
 		ADDED from AndroidManifest.xml:78:13
-activity#com.esgi.groupe1.eloworld.ChangePasswordActivity$ProfilActivity
+activity#com.esgi.groupe1.eloworld.Layout.ChangePasswordActivity$ProfilActivity
 ADDED from AndroidManifest.xml:85:9
 	android:label
 		ADDED from AndroidManifest.xml:87:13
@@ -149,7 +149,7 @@ ADDED from AndroidManifest.xml:85:9
 		ADDED from AndroidManifest.xml:89:13
 	android:name
 		ADDED from AndroidManifest.xml:86:13
-activity#com.esgi.groupe1.eloworld.ProfilActivity
+activity#com.esgi.groupe1.eloworld.Layout.ProfilActivity
 ADDED from AndroidManifest.xml:95:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:99:13
@@ -159,7 +159,7 @@ ADDED from AndroidManifest.xml:95:9
 		ADDED from AndroidManifest.xml:98:13
 	android:name
 		ADDED from AndroidManifest.xml:96:13
-activity#com.esgi.groupe1.eloworld.SearchActivity
+activity#com.esgi.groupe1.eloworld.Layout.SearchActivity
 ADDED from AndroidManifest.xml:107:9
 	android:label
 		ADDED from AndroidManifest.xml:109:13
@@ -167,7 +167,7 @@ ADDED from AndroidManifest.xml:107:9
 		ADDED from AndroidManifest.xml:110:13
 	android:name
 		ADDED from AndroidManifest.xml:108:13
-activity#com.esgi.groupe1.eloworld.TopicsActivity
+activity#com.esgi.groupe1.eloworld.Layout.TopicsActivity
 ADDED from AndroidManifest.xml:115:9
 	android:label
 		ADDED from AndroidManifest.xml:117:13
@@ -175,7 +175,7 @@ ADDED from AndroidManifest.xml:115:9
 		ADDED from AndroidManifest.xml:118:13
 	android:name
 		ADDED from AndroidManifest.xml:116:13
-activity#com.esgi.groupe1.eloworld.PostActivity
+activity#com.esgi.groupe1.eloworld.Layout.PostActivity
 ADDED from AndroidManifest.xml:123:9
 	android:label
 		ADDED from AndroidManifest.xml:125:13
@@ -183,25 +183,25 @@ ADDED from AndroidManifest.xml:123:9
 		ADDED from AndroidManifest.xml:126:13
 	android:name
 		ADDED from AndroidManifest.xml:124:13
-activity#com.esgi.groupe1.eloworld.FriendActivity
+activity#com.esgi.groupe1.eloworld.Layout.FriendActivity
 ADDED from AndroidManifest.xml:131:9
 	android:label
 		ADDED from AndroidManifest.xml:133:13
 	android:name
 		ADDED from AndroidManifest.xml:132:13
-activity#com.esgi.groupe1.eloworld.ListConversationActivity
+activity#com.esgi.groupe1.eloworld.Layout.ListConversationActivity
 ADDED from AndroidManifest.xml:135:9
 	android:label
 		ADDED from AndroidManifest.xml:137:13
 	android:name
 		ADDED from AndroidManifest.xml:136:13
-activity#com.esgi.groupe1.eloworld.MessengerActivity
+activity#com.esgi.groupe1.eloworld.Layout.MessengerActivity
 ADDED from AndroidManifest.xml:139:9
 	android:label
 		ADDED from AndroidManifest.xml:141:13
 	android:name
 		ADDED from AndroidManifest.xml:140:13
-activity#com.esgi.groupe1.eloworld.ListAllFolowActivity
+activity#com.esgi.groupe1.eloworld.Layout.ListAllFolowActivity
 ADDED from AndroidManifest.xml:143:9
 	android:label
 		ADDED from AndroidManifest.xml:145:13

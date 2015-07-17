@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.esgi.groupe1.eloworld.R;
-import com.esgi.groupe1.eloworld.appObject.Topic;
+import com.esgi.groupe1.eloworld.Objects.Topic;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

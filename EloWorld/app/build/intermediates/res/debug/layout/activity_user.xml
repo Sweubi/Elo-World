@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/drawer_layout"
-    tools:context="com.esgi.groupe1.eloworld.UserActivity">
+    tools:context="com.esgi.groupe1.eloworld.Layout.UserActivity">
         <include  layout="@layout/edittext_search" />
         <TextView
             android:id="@+id/nothing"
@@ -13,9 +13,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
         <ListView
             android:id="@+id/ListActu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>
 <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/layout/activity_user.xml -->
