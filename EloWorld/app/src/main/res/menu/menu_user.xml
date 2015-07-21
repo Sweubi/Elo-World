@@ -1,32 +1,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:yourapp="http://schemas.android.com/apk/res-auto"
-    tools:context="com.esgi.groupe1.eloworld.Layout.UserActivity">
+    tools:context="com.esgi.groupe1.eloworld.activity.UserActivity">
     <item android:id="@+id/action_search"
         android:title="Rechercher"
         android:icon="@drawable/ic_action_search"
         android:showAsAction="always"
         tools:ignore="AppCompatResource"
         />
-    <item android:id="@+id/action_logout"
+    <!--<item android:id="@+id/action_logout"
         android:title="Quitter"
         android:icon="@drawable/ic_action_disconnect"
         android:showAsAction="always"
         tools:ignore="AppCompatResource"
-        />
+        />-->
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:icon="@drawable/ic_action_settings"
-        android:showAsAction="always"
+        android:showAsAction="never|withText"
+        android:orderInCategory="100"
         tools:ignore="AppCompatResource" />
 
 
-    <item android:id="@+id/action_chat"
+    <!--<item android:id="@+id/action_chat"
 
         android:title="@string/title_activity_messenger"
         android:icon="@drawable/ic_action_chat"
         android:showAsAction="ifRoom|withText"
-        tools:ignore="AppCompatResource"/>
+        tools:ignore="AppCompatResource"/>-->
 
 
     <item android:id="@+id/action_me"

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.esgi.groupe1.eloworld.Layout.ForumObjet;
+import com.esgi.groupe1.eloworld.activity.ForumObjet;
 import com.esgi.groupe1.eloworld.R;
 
 import java.util.List;

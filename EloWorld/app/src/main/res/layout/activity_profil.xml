@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.esgi.groupe1.eloworld.Layout.ProfilActivity">
+    tools:context="com.esgi.groupe1.eloworld.activity.ProfilActivity">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_500">
+        android:background="@color/grey_400">
         <ImageView
             android:id="@+id/networkImageView"
             android:layout_gravity="center"
@@ -19,15 +19,12 @@
             android:id="@+id/mysummname"
             android:layout_gravity="center"
             android:textColor="@color/text_color_white"
-            android:text="hahahahah"
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-
-
         <ListView
             android:dividerHeight="10.0sp"
             android:layout_marginLeft="10dp"

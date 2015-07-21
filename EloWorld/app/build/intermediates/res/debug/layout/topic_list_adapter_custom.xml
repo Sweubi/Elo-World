@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/padding_20"
     android:padding="20dp"
+    android:background="@drawable/postng"
     >
    <LinearLayout
        android:orientation="horizontal"

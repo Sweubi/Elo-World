@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.esgi.groupe1.eloworld.Layout.SettingsActivity">
+    tools:context="com.esgi.groupe1.eloworld.activity.SettingsActivity">
 
     <ListView
         android:id="@+id/settingslist"

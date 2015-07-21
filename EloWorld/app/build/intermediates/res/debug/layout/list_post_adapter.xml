@@ -4,7 +4,8 @@
     android:padding="15dp"
     android:layout_margin="15dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
@@ -13,20 +14,27 @@
             android:id="@+id/squareSum"
             android:layout_width="40dp"
             android:layout_height="40dp" />
-        <TextView
-            android:padding="10dp"
-            android:id="@+id/sumonner"
-            android:textColor="#ffc107"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                android:id="@+id/sumonner"
+                android:textColor="@color/base_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:id="@+id/lepost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/lepost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="lol"
-       />
-
 </LinearLayout><!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/layout/list_post_adapter.xml -->

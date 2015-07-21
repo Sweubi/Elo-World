@@ -1,10 +1,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.esgi.groupe1.eloworld.Layout.MessengerActivity">
+    tools:context="com.esgi.groupe1.eloworld.activity.MessengerActivity">
     <ListView
         android:orientation="vertical"
         android:id="@+id/listmsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_above="@+id/allPosts"
+        android:id="@+id/lPost"
+        android:background="@color/base_background"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/message"
+            android:hint="@string/msg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/ic_action_send"
+            android:id="@+id/send"
+            android:text="@string/send"
+            android:padding="@dimen/padding_5dp"
+            android:background="@drawable/bt_teal"
+            android:layout_width="0dp"
+            android:layout_weight="0.40"
+            android:textColor="@color/text_color_white"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </RelativeLayout>

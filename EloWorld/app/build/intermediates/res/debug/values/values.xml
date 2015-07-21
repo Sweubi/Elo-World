@@ -82,6 +82,8 @@
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="green_200">#c5e1a5</color>
+    <color name="grey_400">#bdbdbd</color>
+    <color name="grey_900">#cfd8dc</color>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
@@ -120,6 +122,7 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/color.xml -->
     <eat-comment/>
+    <color name="teal_200">#80cbc4</color>
     <color name="teal_500">#009688</color>
     <color name="text_color_blue">#006064</color>
     <color name="text_color_teal">#004d40</color>
@@ -222,7 +225,12 @@
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
+    <dimen name="friendsSquare">40dp</dimen>
+    <dimen name="main_logo">150dp</dimen>
     <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="profilDimen">80dp</dimen>
+    <dimen name="spaceBetwenItem">5dp</dimen>
     <dimen name="text_size">18dp</dimen>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>

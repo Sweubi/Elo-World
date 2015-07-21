@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.esgi.groupe1.eloworld.Objects.Games;
+import com.esgi.groupe1.eloworld.Model.Games;
 import com.esgi.groupe1.eloworld.R;
 import com.squareup.picasso.Picasso;
 

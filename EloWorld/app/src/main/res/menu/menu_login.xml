@@ -1,5 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="com.esgi.groupe1.eloworld.Layout.Login">
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.esgi.groupe1.eloworld.activity.Login">
 
     <item android:id="@+id/newAccount"
         android:title="@string/new_compte"

@@ -11,5 +11,8 @@
     <color name="blue2">#0d47a1</color>
     <color name="green_200">#c5e1a5</color>
     <color name="teal_500">#009688</color>
+    <color name="teal_200">#80cbc4</color>
     <color name="red_100">#ffcdd2</color>
+    <color name="grey_900">#cfd8dc</color>
+    <color name="grey_400">#bdbdbd</color>
 </resources>
