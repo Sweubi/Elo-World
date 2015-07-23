@@ -33,10 +33,12 @@ import java.util.List;
 
 public class ListAllFolowActivity extends Activity {
     private ListView allFollow;
+    private String URL_CONVERSATION ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/message/conversation.php";
     private String url_allFriend ="http://manouanachristopeher.site90.net/EloWorldWeb/Code/WebService/follower/getFollowersList.php";
     private SQLiteHandler db;
     private HashMap<String,Object> user;
     private int myid;
+    int idFriend;
     private AppMethod appMethod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,15 +89,16 @@ public class ListAllFolowActivity extends Activity {
                 for (int i=0;i<allFriends.length();i++){
                    JSONObject objectf = allFriends.getJSONObject(i);
                     Log.d("object",String.valueOf(objectf));
-                    int iduser = 0;
+
                     if (objectf.getInt("idFollowed") == myid){
-                        iduser =objectf.getInt("idUser1");
+                       int iduser =objectf.getInt("idUser1");
                         pseudo = appMethod.PseudoAuthor(String.valueOf(iduser));
                         Friend friend = new Friend(pseudo,iduser);
                         friendList.add(friend);
                     }else{
-                        iduser =objectf.getInt("idFollowed");
+                        int iduser =objectf.getInt("idFollowed");
                         pseudo = appMethod.PseudoAuthor(String.valueOf(iduser));
+                        Log.d("idFollowed",String.valueOf(iduser));
                         Friend friend = new Friend(pseudo,iduser);
                         friendList.add(friend);
                     }
@@ -115,7 +118,7 @@ public class ListAllFolowActivity extends Activity {
             if (friendList.size() == 0){
                 Log.d("False",String.valueOf(friendList.size()));
             }else{
-                Log.d("true",String.valueOf(friendList.size()));
+                Log.d("true list",String.valueOf(friendList));
                 //ArrayAdapter adapter= new  ArrayAdapter<String>(ListAllFolowActivity.this,android.R.layout.simple_list_item_1,friendList);
                 ArrayAdapter adapter = new FriendsAdapter(ListAllFolowActivity.this,friendList);
                 allFollow = (ListView)findViewById(R.id.followList);
@@ -123,15 +126,53 @@ public class ListAllFolowActivity extends Activity {
                 allFollow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String name = String.valueOf(parent.getItemAtPosition(position));
-                        Toast.makeText(ListAllFolowActivity.this, name, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),FriendActivity.class);
-                        intent.putExtra("Summoner",name);
-                        intent.putExtra("friend","friend");
-                        startActivity(intent);
+                        Intent intentExtra = getIntent();
+                        Friend friend = (Friend) parent.getItemAtPosition(position);
+                        String provenance =intentExtra.getStringExtra("provenance");
+                        if (provenance.equals("chat")){
+                            idFriend = friend.getId();
+                            new CreateConversation().execute();
+                        }if (provenance.equals("friend")){
+                            String name = friend.getName();
+                            Toast.makeText(ListAllFolowActivity.this, name, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(),FriendActivity.class);
+                            intent.putExtra("Summoner",name);
+                            startActivity(intent);
+                        }
+
                     }
                 });
             }
         }
+    }
+    class CreateConversation extends AsyncTask{
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            user = db.getUser();
+            int idUser = (int) user.get("idUser");
+            int idConversation = 0;
+            List<NameValuePair>nameValuePairs = new ArrayList<>();
+            nameValuePairs.add(new BasicNameValuePair("idUser",String.valueOf(idUser)));
+            nameValuePairs.add(new BasicNameValuePair("idUserFollow", String.valueOf(idFriend)));
+            JSONObject object = new JSONParser().makeHttpRequest(URL_CONVERSATION, nameValuePairs);
+            try {
+                idConversation = object.getInt("idConversation");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return idConversation;
+        }
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            int idConversation = (int)o;
+            Intent intent = new Intent(getApplicationContext(),MessengerActivity.class);
+            intent.putExtra("idConversation",idConversation);
+            startActivity(intent);
+        }
+
+
     }
 }

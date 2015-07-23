@@ -18,13 +18,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
-
+            android:layout_margin="5dp"
+            android:background="@drawable/editext_white_bg"
+            android:padding="10dp"
             android:id="@+id/description"
             android:hint="@string/topic"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <Button
+            android:layout_margin="5dp"
             android:id="@+id/btAdd"
             android:text="@string/add"
             android:background="@drawable/bt_teal"

@@ -322,6 +322,8 @@
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="delete">Supprimer votre compte</string>
+    <string name="disconect">Se déconnecter</string>
+    <string name="disconect_msg">Voulez-vous vraiment quitter l\'application ?</string>
     <string name="drawer_close">Fermer</string>
     <string name="drawer_open">Ouvrir</string>
     <string name="follow">Suivre</string>
@@ -339,6 +341,7 @@
     <string name="logout">Déconnexion</string>
     <string name="msg">Nouveau message</string>
     <string name="new_compte">Créer un compte</string>
+    <string name="out">Quitter</string>
     <string name="register">Inscription</string>
     <string name="send">Envoyer</string>
     <!-- From: file:/C:/Users/manouana/Documents/AndroidStudioProjects/EloWorld/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_strings.xml -->

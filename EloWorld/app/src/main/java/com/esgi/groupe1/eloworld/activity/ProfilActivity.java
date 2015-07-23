@@ -92,6 +92,7 @@ public class ProfilActivity extends Activity  {
                 break;
             case R.id.action_friends:
                 intent = new Intent(getApplicationContext(), ListAllFolowActivity.class);
+                intent.putExtra("provenance","friend");
                 startActivity(intent);
                 break;
         }
@@ -140,7 +141,7 @@ public class ProfilActivity extends Activity  {
                     boolean wingame = getdata.getBoolean("win");
                     int numDeaths = getdata.optInt("numDeaths");
                     int championsKilled = getdata.optInt("championsKilled");
-                    int championsAssists = getdata.getInt("assists");
+                    int championsAssists = getdata.optInt("assists");
                     int idItem0 = getdata.optInt("item0");
                     int idItem1 = getdata.optInt("item1");
                     int idItem2 = getdata.optInt("item2");

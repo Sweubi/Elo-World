@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.esgi.groupe1.eloworld.R;
@@ -205,7 +207,6 @@ public class Login extends Activity {
 
         @Override
         protected void onPostExecute(Integer object) {
-            // Dismiss the progress dialog
             dialog.dismiss();
             Log.d("Mon objet de retour", String.valueOf(object));
             if (object==1){

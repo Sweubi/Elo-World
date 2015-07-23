@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -58,13 +59,25 @@ public class UserActivity extends Activity  {
         searchImageV = (ImageView) findViewById(R.id.searchImageV);
         viewnothing = (TextView) findViewById(R.id.nothing);
         new DisplayActu().execute();
-        /*Timer minuteur = new Timer();
-        TimerTask tache = new TimerTask() {
+        /*final Handler handler = new Handler();
+        new Thread(new Runnable() {
+            @Override
             public void run() {
-                new DisplayActu().execute();
+                while (true){
+                    try {
+                        Thread.sleep(20000);
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                new DisplayActu().execute();
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        };
-        minuteur.schedule(tache, 7, 10000);*/
+        }).start();*/
         db = new SQLiteHandler(getApplicationContext());
         session = new SessionManager(getApplicationContext());
         if (!session.isLoggedIn())
@@ -133,14 +146,19 @@ public class UserActivity extends Activity  {
         }
 
         //noinspection SimplifiableIfStatement
+        Intent intent;
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(getApplicationContext(),SettingsActivity.class);
+            intent = new Intent(getApplicationContext(),SettingsActivity.class);
             startActivity(intent);
         }if (id == R.id.action_me){
-            Intent intent = new Intent(getApplicationContext(),ProfilActivity.class);
+          intent = new Intent(getApplicationContext(),ProfilActivity.class);
             startActivity(intent);
         }if (id == R.id.action_foum){
-            Intent intent = new Intent(getApplicationContext(),ForumActivity.class);
+           intent = new Intent(getApplicationContext(),ForumActivity.class);
+            startActivity(intent);
+        }if (id == R.id.action_chat){
+            intent = new Intent(getApplicationContext(),ListAllFolowActivity.class);
+            intent.putExtra("provenance","chat");
             startActivity(intent);
         }
 
@@ -170,7 +188,6 @@ public class UserActivity extends Activity  {
                     String date = object.optString("Date");
                     String idauteur = object.optString("User_idUser");
                     String idTopic = String.valueOf(object.optInt("idTopic")) ;
-                    Log.d("String Id",idTopic);
                     String name = new AppMethod().PseudoAuthor(idauteur);
                     Topic topicObject = new Topic(libelle,name,date,idTopic);
                     topicList.add(topicObject);

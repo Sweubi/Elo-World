@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,7 +59,6 @@ public class SettingsActivity extends Activity {
         for (int i =0;i<values.length;i++){
            value = values[i];
         }
-        Log.d("values",value);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,values);
         listView = (ListView)findViewById(R.id.settingslist);
         listView.setAdapter(arrayAdapter);
@@ -68,21 +66,29 @@ public class SettingsActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String Maposition = String.valueOf(parent.getItemAtPosition(position));
-                Log.d("id",String.valueOf(id));
-                Log.d("value",String.valueOf(Maposition));
                 switch ((int) id){
                     case 0:
-                        Log.d("test","0");
                         break;
                     case 1:
-                        Log.d("test","1");
                         break;
                     case 2:
-                        Log.d("test","0");
                         break;
                     case 3:
-                        Log.d("test","0");
-                        logout();
+
+                        new  AlertDialog.Builder(context)
+                                .setTitle(R.string.disconect)
+                                .setMessage(R.string.disconect_msg)
+                                .setPositiveButton(R.string.out, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        logout();
+                                    }
+                                }).setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
                         break;
                 }
 
@@ -144,7 +150,6 @@ public class SettingsActivity extends Activity {
 
             List<NameValuePair> parameters = new ArrayList<>();
             parameters.add(new BasicNameValuePair("idUser",String.valueOf(user.get("idUser"))));
-            Log.d("lool",String.valueOf(user.get("idUser")));
             JSONObject object = new JSONParser().makeHttpRequest(url_delete, parameters);
             return object;
         }

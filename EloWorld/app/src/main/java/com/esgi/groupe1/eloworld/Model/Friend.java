@@ -22,7 +22,9 @@ public class Friend {
 
     @Override
     public String toString() {
-        return  name;
-
+        return "Friend{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

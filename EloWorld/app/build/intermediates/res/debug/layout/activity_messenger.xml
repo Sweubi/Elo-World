@@ -3,6 +3,9 @@
     android:layout_height="match_parent"
     tools:context="com.esgi.groupe1.eloworld.activity.MessengerActivity">
     <ListView
+        android:dividerHeight="10.0sp"
+        android:divider="@android:color/transparent"
+        android:layout_margin="@dimen/padding_20"
         android:orientation="vertical"
         android:id="@+id/listmsg"
         android:layout_width="match_parent"
@@ -16,6 +19,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:background="@drawable/editext_white_bg"
             android:id="@+id/message"
             android:hint="@string/msg"
             android:layout_width="0dp"

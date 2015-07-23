@@ -23,6 +23,9 @@
     <string name="action_search">Rechercher </string>
     <string name="delete">Supprimer votre compte</string>
     <string name="msg">Nouveau message</string>
+    <string name="disconect">Se déconnecter</string>
+    <string name="disconect_msg">Voulez-vous vraiment quitter l\'application ?</string>
+    <string name="out">Quitter</string>
 
 
 

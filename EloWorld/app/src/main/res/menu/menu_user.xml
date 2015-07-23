@@ -22,12 +22,11 @@
         tools:ignore="AppCompatResource" />
 
 
-    <!--<item android:id="@+id/action_chat"
-
+    <item android:id="@+id/action_chat"
         android:title="@string/title_activity_messenger"
         android:icon="@drawable/ic_action_chat"
         android:showAsAction="ifRoom|withText"
-        tools:ignore="AppCompatResource"/>-->
+        tools:ignore="AppCompatResource"/>
 
 
     <item android:id="@+id/action_me"
@@ -38,6 +37,7 @@
 
     <item android:id="@+id/action_foum"
         android:title="@string/title_activity_forum"
+        android:icon="@drawable/ic_action_forum"
         android:showAsAction="always"
         tools:ignore="AppCompatResource"/>
     />
